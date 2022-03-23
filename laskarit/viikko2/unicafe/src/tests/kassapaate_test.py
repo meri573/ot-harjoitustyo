@@ -38,7 +38,6 @@ class TestKassapaate(unittest.TestCase):
         self.assertEqual(self.kassapaate.edulliset, 0)
 
 
-
     def test_kateismaksu_raha_kassassa_kasvaa_maukas(self):
         self.kassapaate.syo_maukkaasti_kateisella(400)
         self.assertEqual(self.kassapaate.kassassa_rahaa, 100400)
@@ -60,3 +59,50 @@ class TestKassapaate(unittest.TestCase):
     def test_myytyjen_lounaiden_maara_ei_muutu_maukas(self):
         self.kassapaate.syo_maukkaasti_kateisella(230)
         self.assertEqual(self.kassapaate.maukkaat, 0)
+
+
+    def test_kortilta_veloitetaan_oikea_maara_edullinen(self):
+        self.maksukortti = Maksukortti(240)
+        self.assertEqual(self.kassapaate.syo_edullisesti_kortilla(self.maksukortti), True)
+
+    def test_kortilta_veloitetaan_oikea_maara_maukas(self):
+        self.maksukortti = Maksukortti(400)
+        self.assertEqual(self.kassapaate.syo_maukkaasti_kortilla(self.maksukortti), True)
+
+    def test_kortti_lounaiden_maara_kasvaa_edullinen(self):
+        self.maksukortti = Maksukortti(240)
+        self.kassapaate.syo_edullisesti_kortilla(self.maksukortti)
+        self.assertEqual(self.kassapaate.edulliset, 1)
+
+    def test_kortti_lounaiden_maara_kasvaa_maukas(self):
+        self.maksukortti = Maksukortti(400)
+        self.kassapaate.syo_maukkaasti_kortilla(self.maksukortti)
+        self.assertEqual(self.kassapaate.maukkaat, 1)
+
+    def test_kortti_rahaa_ei_oteta_edullinen(self):
+        self.maksukortti = Maksukortti(230)
+        self.kassapaate.syo_edullisesti_kortilla(self.maksukortti)
+        self.assertEqual(self.maksukortti.saldo, 230)
+
+    def test_kortti_rahaa_ei_oteta_maukas(self):
+        self.maksukortti = Maksukortti(390)
+        self.kassapaate.syo_maukkaasti_kortilla(self.maksukortti)
+        self.assertEqual(self.maksukortti.saldo, 390)
+
+    def test_kortti_palauta_false_edullinen(self):
+        self.maksukortti = Maksukortti(230)
+        self.assertEqual(self.kassapaate.syo_edullisesti_kortilla(self.maksukortti), False)
+
+    def test_kortti_palauta_false_maukas(self):
+        self.maksukortti = Maksukortti(390)
+        self.assertEqual(self.kassapaate.syo_maukkaasti_kortilla(self.maksukortti), False)
+    
+    def test_kassan_raha_ei_muutu_edullinen(self):
+        self.maksukortti = Maksukortti(240)
+        self.kassapaate.syo_edullisesti_kortilla(self.maksukortti)
+        self.assertEqual(self.kassapaate.kassassa_rahaa, 100000)
+
+    def test_kassan_raha_ei_muutu_maukas(self):
+        self.maksukortti = Maksukortti(400)
+        self.kassapaate.syo_maukkaasti_kortilla(self.maksukortti)
+        self.assertEqual(self.kassapaate.kassassa_rahaa, 100000)
