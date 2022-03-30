@@ -1,5 +1,8 @@
 ```mermaid
 classDiagram
+  Monopoli "1" -- "*" Pelaaja
+  Monopoli "1" -- "1" Pelilauta
+
   Pelaaja "1" -- "1" Nappula
   
   
@@ -11,11 +14,30 @@ classDiagram
   Pelaaja "*" -- "1" Nopat
   
   
-  class Nappula
-
+  Ruutu <|-- Aloitusruutu
+  Ruutu <|-- Vankila
+  Ruutu <|-- Sattuma
+  Ruutu <|-- Yhteismaa
+  Ruutu <|-- Asema
+  Ruutu <|-- Laitos
+  Ruutu <|-- Katu
   
-  class Ruutu{
-     SeuraavaRuutu
-  }
+  Pelilauta "1" -- "*" Korttipakka
+
+
+  Korttipakka "1" -- "*" Kortti
+  Kortti <|--  Sattumakortti
+  Kortti <|--  Yhteismaakortti
+  
+  Katu "1" -- "*" Rakennus
+  
+  Rakennus <|-- Talo
+  Rakennus <|-- Hotelli
+  
+  Pelaaja "1" -- "*" Katu
+  
+  Pelaaja "1" -- "*" Raha
+
+
 
 ```
