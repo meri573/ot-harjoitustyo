@@ -18,7 +18,9 @@ sequenceDiagram
   
   activate _engine
   _engine ->> _tank: "._fuel_tank.consume(5)"
-
+  activate _tank
+  _tank -->> _engine: "35" 
+  deactivate _tank
   
   
   deactivate _engine
@@ -33,6 +35,10 @@ sequenceDiagram
   Kone ->> _engine: "._engine.use_energy()"
   activate _engine
   _engine ->> _tank: "._fuel_tank.consume(10)" 
+  
+  activate _tank
+  _tank -->> _engine: "25" 
+  deactivate _tank
   
   deactivate _engine
   
