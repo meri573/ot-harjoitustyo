@@ -41,8 +41,12 @@ def main():
 
     level.all_sprites.draw(display)
 
-    #pygame.display.update()
+    running = True
 
+    while running:
+         
+        pygame.display.update()
+    
 
 
 
