@@ -12,7 +12,7 @@ class Playfield:
 
         self.all_sprites = pygame.sprite.Group()
 
-
+        self._initialize_sprites(playfield_map)
 
 
     def _initialize_sprites(self, playfield_map):
@@ -25,10 +25,11 @@ class Playfield:
                 normalized_x = x * self.cell_size
                 normalized_y = y * self.cell_size
 
+
                 if cell == 0:
-                    self.empty.add(Empty(normalized_x, normalized_y, width, height))
+                    self.empty.add(Empty(normalized_x, normalized_y, self.cell_size))
                 elif cell == 1:
-                    self.walls.add(Wall(normalized_x, normalized_y, width, height))
+                    self.walls.add(Wall(normalized_x, normalized_y, self.cell_size))
 
         self.all_sprites.add(
             self.walls,

@@ -1,12 +1,14 @@
 import pygame
 
 class Empty(pygame.sprite.Sprite):
-    def __init__(self, x=0, y=0, width=0, height=0, color=(200,200,200)):
-        pygame.sprite.Sprite.__init__(self)
+    def __init__(self, x=0, y=0, cell_size=50, color=(200,200,200)):
+        super().__init__()
 
-        self.image = pygame.Surface(width,height)
+        self.cell_size = cell_size
+
+        self.image = pygame.Surface((self.cell_size, self.cell_size))
         self.image.fill(color)
 
-        self.rect = pygame.Rect(x, y, width, height)
+        self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
