@@ -49,8 +49,6 @@ def main():
 
     clock = Clock()
 
-
-
     ## game_loop
     running = True
 
