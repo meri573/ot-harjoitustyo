@@ -26,9 +26,9 @@ class Playfield:
                 normalized_y = y * self.cell_size
 
                 if cell == 0:
-                    self.empty.add(Empty())
+                    self.empty.add(Empty(normalized_x, normalized_y, width, height))
                 elif cell == 1:
-                    self.walls.add(Wall())
+                    self.walls.add(Wall(normalized_x, normalized_y, width, height))
 
         self.all_sprites.add(
             self.walls,
