@@ -2,7 +2,7 @@ import pygame
 from playfield import Playfield
 from clock import Clock
 
-CELL_SIZE = 50
+CELL_SIZE = 45
 
 PLAYFIELD_MAP = [[1,0,0,0,0,0,0,0,0,0,0,1],
                 [1,0,0,0,0,0,0,0,0,0,0,1],
