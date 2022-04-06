@@ -3,6 +3,7 @@ from sprites.empty import Empty
 from sprites.wall import Wall
 
 
+
 class Playfield:
     def __init__(self, playfield_map, cell_size):
         self.cell_size = cell_size
