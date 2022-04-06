@@ -2,6 +2,7 @@ import pygame
 from sprites.empty import Empty
 from sprites.wall import Wall
 
+
 class Playfield:
     def __init__(self, playfield_map, cell_size):
         self.cell_size = cell_size
@@ -14,7 +15,6 @@ class Playfield:
 
         self._initialize_sprites(playfield_map)
 
-
     def _initialize_sprites(self, playfield_map):
         height = len(playfield_map)
         width = len(playfield_map[0])
@@ -25,15 +25,16 @@ class Playfield:
                 normalized_x = x * self.cell_size
                 normalized_y = y * self.cell_size
 
-
                 if cell == 0:
-                    self.empty.add(Empty(normalized_x, normalized_y, self.cell_size))
+                    self.empty.add(
+                        Empty(normalized_x, normalized_y, self.cell_size))
                 elif cell == 1:
-                    self.walls.add(Wall(normalized_x, normalized_y, self.cell_size))
+                    self.walls.add(
+                        Wall(normalized_x, normalized_y, self.cell_size))
 
         self.all_sprites.add(
             self.walls,
             self.empty,
             self.active_block,
             self.locked_blocks
-            )
+        )

@@ -1,7 +1,8 @@
 import pygame
 
+
 class Empty(pygame.sprite.Sprite):
-    def __init__(self, x=0, y=0, cell_size=50, color=(200,200,200)):
+    def __init__(self, x=0, y=0, cell_size=50, color=(200, 200, 200)):
         super().__init__()
 
         self.cell_size = cell_size
