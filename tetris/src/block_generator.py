@@ -10,4 +10,4 @@ class BlockGenerator:
 
     def create_random_block(self):
         block = random.choice(self._blocks)
-        
+        self._playfield.initialize_sprites(block[0], block[1])

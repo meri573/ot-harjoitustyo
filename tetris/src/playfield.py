@@ -1,6 +1,7 @@
 import pygame
 from sprites.empty import Empty
 from sprites.wall import Wall
+from sprites.block import Block
 
 
 
@@ -14,9 +15,9 @@ class Playfield:
 
         self.all_sprites = pygame.sprite.Group()
 
-        self._initialize_sprites(playfield_map)
+        self.initialize_sprites(playfield_map)
 
-    def _initialize_sprites(self, playfield_map):
+    def initialize_sprites(self, playfield_map, color = (255,255,255)):
         height = len(playfield_map)
         width = len(playfield_map[0])
 
@@ -32,6 +33,9 @@ class Playfield:
                 elif cell == 1:
                     self.walls.add(
                         Wall(normalized_x, normalized_y, self.cell_size))
+                elif cell == 2:
+                    self.active_block.add(
+                        Block(normalized_x, normalized_y, self.cell_size, color))
 
         self.all_sprites.add(
             self.walls,

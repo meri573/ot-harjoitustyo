@@ -28,7 +28,10 @@ PLAYFIELD_MAP = [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
                  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
                  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
 
-TEST_BLOCK_T = []
+TEST_BLOCK_T = ([["x", "x", "x", "x", 2, 2, 2, "x", "x", "x", "x", "x"],
+                ["x", "x", "x", "x", "x", 2, "x", "x", "x", "x", "x", "x"]],(153, 51, 255))
+
+BLOCKS = [TEST_BLOCK_T]
 
 def main():
 
@@ -46,9 +49,9 @@ def main():
 
     clock = Clock()
 
-    block_generator = BlockGenerator(playfield, TEST_BLOCK_T)
+    block_generator = BlockGenerator(playfield, BLOCKS)
 
-    game_loop = GameLoop(CELL_SIZE, PLAYFIELD_MAP)
+    game_loop = GameLoop(CELL_SIZE, playfield, block_generator, display, clock)
 
     game_loop.start()
 
