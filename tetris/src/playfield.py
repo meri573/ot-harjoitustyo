@@ -64,7 +64,7 @@ class Playfield:
 
         return boolean_value
 
-    def _move_block(self, sprite, delta_x=0, delta_y=0):
+    def move_block(self, sprite, delta_x=0, delta_y=0):
         pygame.sprite.move_ip(delta_x, delta_y)
 
     def move_group(self, group, delta_x=0, delta_y=0):
@@ -72,4 +72,4 @@ class Playfield:
             return
 
         for sprite in group:
-            self._move_block(sprite, delta_x, delta_y)
+            self.move_block(sprite, delta_x, delta_y)
