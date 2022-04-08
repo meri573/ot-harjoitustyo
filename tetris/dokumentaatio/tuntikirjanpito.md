@@ -9,3 +9,4 @@
 |7.4    |1     |palikkageneraattori|
 |8.4    |1.5   |palikoiden liikkuttelu|
 |8.4    |0.5   |palikkageneraattorin testi|
+|8.4    |1     |palikoiden liikuttamisfunktioiden aloitus|
