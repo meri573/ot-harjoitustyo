@@ -44,7 +44,7 @@ class Playfield:
         )
 
     def _can_move(self, sprite, delta_x=0, delta_y=0):
-        pygame.sprite.move_ip(delta_x, delta_y)
+        sprite.rect.move_ip(delta_x, delta_y)
 
         colliding_walls = pygame.sprite.spritecollide(
             sprite, self.walls, False)
@@ -52,7 +52,7 @@ class Playfield:
             sprite, self.locked_blocks, False)
         can_move = not colliding_walls and not colliding_locked_blocks
 
-        pygame.sprite.move_ip(-delta_x, -delta_y)
+        sprite.rect.move_ip(-delta_x, -delta_y)
 
         return can_move
 
@@ -65,7 +65,7 @@ class Playfield:
         return boolean_value
 
     def move_block(self, sprite, delta_x=0, delta_y=0):
-        pygame.sprite.move_ip(delta_x, delta_y)
+        sprite.rect.move_ip(delta_x, delta_y)
 
     def move_group(self, group, delta_x=0, delta_y=0):
         if not self._group_can_move:

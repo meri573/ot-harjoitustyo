@@ -2,7 +2,6 @@ import random
 import pygame
 
 
-
 class BlockGenerator:
     def __init__(self, playfield, blocks):
         self._playfield = playfield
