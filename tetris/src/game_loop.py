@@ -13,23 +13,18 @@ class GameLoop:
 
         running = True
 
-        move_counter = 0
-        gravity_counter = 0
-        moved_on_last_frame = False
-
         self._block_generator.create_random_block()
 
         while running:
 
-            self._event_handling(
-                move_counter, gravity_counter, moved_on_last_frame)
+            self._event_handling()
 
             self._playfield.all_sprites.draw(self._display)
             pygame.display.update()
 
             self._clock.tick(60)
 
-    def _event_handling(self, move_counter, gravity_counter, moved_on_last_frame):
+    def _event_handling(self):
 
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:

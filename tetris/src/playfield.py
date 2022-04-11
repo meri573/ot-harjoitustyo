@@ -20,11 +20,11 @@ class Playfield:
         height = len(playfield_map)
         width = len(playfield_map[0])
 
-        for y in range(height):
-            for x in range(width):
-                cell = playfield_map[y][x]
-                normalized_x = x * self.cell_size
-                normalized_y = y * self.cell_size
+        for y_index in range(height):
+            for x_index in range(width):
+                cell = playfield_map[y_index][x_index]
+                normalized_x = x_index * self.cell_size
+                normalized_y = y_index * self.cell_size
 
                 if cell == 0:
                     self.empty.add(
