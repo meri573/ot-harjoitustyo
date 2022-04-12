@@ -11,6 +11,8 @@ Tetris toteutettu pygame-kirjaston avulla.
 
 [changelog.md](https://github.com/meri573/ot-harjoitustyo/blob/main/tetris/dokumentaatio/changelog.md)
 
+[arkkitehtuuri.md](https://github.com/meri573/ot-harjoitustyo/blob/main/tetris/dokumentaatio/arkkitehtuuri.md)
+
 ## Asennus
 1. riippuvuudet saa asennettua komennolla
 
