@@ -21,6 +21,7 @@ class GameLoop:
             self._event_handling()
 
             self._playfield.all_sprites.draw(self._display)
+            
             pygame.display.update()
 
             self._clock.tick(60)

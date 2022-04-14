@@ -51,7 +51,7 @@ def main():
 
     playfield.all_sprites.draw(display)
 
-    clock = Clock()
+    clock = Clock(playfield)
 
     block_generator = BlockGenerator(playfield, BLOCKS)
 
