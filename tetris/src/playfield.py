@@ -60,7 +60,7 @@ class Playfield:
         for block_sprite in group:
             boolean_value = self._can_move(block_sprite, delta_x, delta_y)
             if boolean_value is False:
-                return False
+                break
 
         return boolean_value
 
@@ -68,8 +68,6 @@ class Playfield:
         block_sprite.rect.move_ip(delta_x, delta_y)
 
     def move_group(self, group, delta_x=0, delta_y=0):
-        if self._group_can_move(group):
-            return
-        else:
+        if self._group_can_move(group, delta_x, delta_y):
             for block_sprite in group:
-                self.move_block(block_sprite, delta_x, delta_y)
+                self.move_block(block_sprite, delta_x, delta_y)   

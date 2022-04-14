@@ -108,6 +108,7 @@ class TestPlayfield(unittest.TestCase):
         test_sprite = self.create_sprite(0, 0, CELL_SIZE)
 
         temp_playfield.move_group(temp_playfield.active_block, 0, CELL_SIZE)
+        temp_playfield.move_group(temp_playfield.active_block, 0, CELL_SIZE)
 
         for sprite in self.playfield.active_block:
             self.assertEqual(pygame.sprite.collide_rect(sprite123,test_sprite), True)
