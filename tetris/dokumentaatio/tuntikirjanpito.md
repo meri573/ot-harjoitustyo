@@ -10,4 +10,5 @@
 |8.4    |1.5   |palikoiden liikkuttelu|
 |8.4    |0.5   |palikkageneraattorin testi|
 |8.4    |1     |palikoiden liikuttamisfunktioiden aloitus|
-|yht    |13    |  |
+|14.4   |1.5   |palikan liikuttamisfunktioiden testit ja bugien korjaus|
+|yht    |14.5  |  |
