@@ -70,4 +70,8 @@ class Playfield:
     def move_group(self, group, delta_x=0, delta_y=0):
         if self._group_can_move(group, delta_x, delta_y):
             for block_sprite in group:
-                self.move_block(block_sprite, delta_x, delta_y)   
+                self.move_block(block_sprite, delta_x, delta_y)
+
+    def move_active_block_to_inactive(self):
+        self.locked_blocks.add(self.active_block)
+        self.active_block.remove(self.active_block)

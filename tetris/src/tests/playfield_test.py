@@ -26,6 +26,10 @@ PLAYFIELD_MAP = [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
                  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
                  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
 
+TEST_BLOCK_T = ([["x", "x", "x", "x", 2, 2, 2, "x", "x", "x", "x", "x"],
+                ["x", "x", "x", "x", "x", 2, "x", "x", "x", "x", "x", "x"]], (153, 51, 255))
+
+BLOCKS = [TEST_BLOCK_T]
 
 CELL_SIZE = 50
 
@@ -33,6 +37,7 @@ CELL_SIZE = 50
 class TestPlayfield(unittest.TestCase):
     def setUp(self):
         self.playfield = Playfield(PLAYFIELD_MAP, CELL_SIZE)
+        self.block_generator = BlockGenerator(self.playfield, BLOCKS)
 
     def create_sprite(self, x, y, cell_size):
         return Block(x, y)
@@ -50,14 +55,7 @@ class TestPlayfield(unittest.TestCase):
             self.assertEqual(sprite.rect.y, CELL_SIZE)
 
     def test_T_block_created_properly(self):
-
-        TEST_BLOCK_T = ([["x", "x", "x", "x", 2, 2, 2, "x", "x", "x", "x", "x"],
-                        ["x", "x", "x", "x", "x", 2, "x", "x", "x", "x", "x", "x"]], (153, 51, 255))
-
-        BLOCKS = [TEST_BLOCK_T]
-
-        block_generator = BlockGenerator(self.playfield, BLOCKS)
-        block_generator.create_random_block()
+        self.block_generator.create_random_block()
 
         test_rect_group = []
 
@@ -78,9 +76,9 @@ class TestPlayfield(unittest.TestCase):
 
     def test_block_moves_correctly(self):
 
-        TEST_BLOCK_T = ([["x", "x", "x", "x", 2, "x", "x", "x", "x", "x", "x", "x"],
+        TEST_BLOCK_4 = ([["x", "x", "x", "x", 2, "x", "x", "x", "x", "x", "x", "x"],
                         ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x"]], (153, 51, 255))
-        BLOCKS = [TEST_BLOCK_T]
+        BLOCKS = [TEST_BLOCK_4]
         block_generator = BlockGenerator(self.playfield, BLOCKS)
         block_generator.create_random_block()
 
@@ -112,3 +110,12 @@ class TestPlayfield(unittest.TestCase):
 
         for sprite in self.playfield.active_block:
             self.assertEqual(pygame.sprite.collide_rect(sprite123,test_sprite), True)
+
+    def test_lock_block(self):
+        self.block_generator.create_random_block()
+
+        self.playfield.move_active_block_to_inactive()
+
+        self.assertEqual(len(self.playfield.active_block), 0)
+        self.assertNotEqual(len(self.playfield.locked_blocks), 0)
+        
