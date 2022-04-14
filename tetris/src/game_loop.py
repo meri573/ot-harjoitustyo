@@ -1,7 +1,6 @@
 import pygame
 
 
-
 class GameLoop:
     def __init__(self, cell_size, playfield, block_generator, display, clock):
         self._cell_size = cell_size
@@ -21,7 +20,7 @@ class GameLoop:
             self._event_handling()
 
             self._playfield.all_sprites.draw(self._display)
-            
+
             pygame.display.update()
 
             self._clock.tick(60)

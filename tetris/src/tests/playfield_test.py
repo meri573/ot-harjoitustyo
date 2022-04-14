@@ -82,20 +82,19 @@ class TestPlayfield(unittest.TestCase):
         block_generator = BlockGenerator(self.playfield, BLOCKS)
         block_generator.create_random_block()
 
-
         test_sprite = self.create_sprite(4 * CELL_SIZE, 1, CELL_SIZE)
 
         self.playfield.move_group(self.playfield.active_block, 0, CELL_SIZE)
 
         for sprite123 in self.playfield.active_block:
-            self.assertEqual(pygame.sprite.collide_rect(sprite123,test_sprite), True)
+            self.assertEqual(pygame.sprite.collide_rect(
+                sprite123, test_sprite), True)
             #self.assertNotEqual(indexi, -1)
 
-
     def test_block_cant_move_through_wall(self):
-        PLAYFIELD_MAP_3 = [[ 0 ],
-                            [ 1 ]]
-        TEST_BLOCK_1 = ([[2]], (50,50,50))
+        PLAYFIELD_MAP_3 = [[0],
+                           [1]]
+        TEST_BLOCK_1 = ([[2]], (50, 50, 50))
         BLOCKS = [TEST_BLOCK_1]
 
         temp_playfield = Playfield(PLAYFIELD_MAP_3, CELL_SIZE)
@@ -109,7 +108,8 @@ class TestPlayfield(unittest.TestCase):
         temp_playfield.move_group(temp_playfield.active_block, 0, CELL_SIZE)
 
         for sprite in self.playfield.active_block:
-            self.assertEqual(pygame.sprite.collide_rect(sprite123,test_sprite), True)
+            self.assertEqual(pygame.sprite.collide_rect(
+                sprite123, test_sprite), True)
 
     def test_lock_block(self):
         self.block_generator.create_random_block()
@@ -118,4 +118,3 @@ class TestPlayfield(unittest.TestCase):
 
         self.assertEqual(len(self.playfield.active_block), 0)
         self.assertNotEqual(len(self.playfield.locked_blocks), 0)
-        
