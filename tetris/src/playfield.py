@@ -68,7 +68,7 @@ class Playfield:
         sprite.rect.move_ip(delta_x, delta_y)
 
     def move_group(self, group, delta_x=0, delta_y=0):
-        if not self._group_can_move:
+        if not self._group_can_move(group):
             return
 
         for sprite in group:

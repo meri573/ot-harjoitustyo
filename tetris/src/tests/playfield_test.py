@@ -2,6 +2,7 @@ import pygame
 import unittest
 from playfield import Playfield
 from block_generator import BlockGenerator
+from sprites.block import Block
 
 PLAYFIELD_MAP = [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
                  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -32,6 +33,9 @@ CELL_SIZE = 50
 class TestPlayfield(unittest.TestCase):
     def setUp(self):
         self.playfield = Playfield(PLAYFIELD_MAP, CELL_SIZE)
+
+    def create_sprite(self, x, y, cell_size):
+        return Block(x, y)
 
     def test_wall_created_in_correct_coordinates(self):
         PLAYFIELD_MAP_2 = [[0, 0],
@@ -71,3 +75,39 @@ class TestPlayfield(unittest.TestCase):
         for sprite in self.playfield.active_block:
             indexi = sprite.rect.collidelist(test_rect_group)
             self.assertNotEqual(indexi, -1)
+
+    def test_block_moves_correctly(self):
+
+        TEST_BLOCK_T = ([["x", "x", "x", "x", 2, "x", "x", "x", "x", "x", "x", "x"],
+                        ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x"]], (153, 51, 255))
+        BLOCKS = [TEST_BLOCK_T]
+        block_generator = BlockGenerator(self.playfield, BLOCKS)
+        block_generator.create_random_block()
+
+
+        test_sprite = self.create_sprite(4 * CELL_SIZE, 1, CELL_SIZE)
+
+        self.playfield.move_group(self.playfield.active_block, 0, CELL_SIZE)
+
+        for sprite123 in self.playfield.active_block:
+            self.assertEqual(pygame.sprite.collide_rect(sprite123,test_sprite), True)
+            #self.assertNotEqual(indexi, -1)
+
+
+    def test_block_cant_move_through_wall(self):
+        PLAYFIELD_MAP_3 = [[ 0 ],
+                            [ 1 ]]
+        TEST_BLOCK_1 = ([[2]], (50,50,50))
+        BLOCKS = [TEST_BLOCK_1]
+
+        temp_playfield = Playfield(PLAYFIELD_MAP_3, CELL_SIZE)
+
+        block_generator = BlockGenerator(temp_playfield, BLOCKS)
+        block_generator.create_random_block()
+
+        test_sprite = self.create_sprite(0, 0, CELL_SIZE)
+
+        temp_playfield.move_group(temp_playfield.active_block, 0, CELL_SIZE)
+
+        for sprite in self.playfield.active_block:
+            self.assertEqual(pygame.sprite.collide_rect(sprite123,test_sprite), True)
