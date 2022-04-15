@@ -61,4 +61,5 @@ class GameLoop:
         else:
             self._clock.lock_counter_reset()
 
-
+    def _gravity_check(self):
+        pass
