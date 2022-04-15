@@ -2,18 +2,20 @@ import pygame
 
 
 class GameLoop:
-    def __init__(self, cell_size, playfield, block_generator, display, clock):
+    def __init__(self, cell_size, playfield, block_generator, display, clock, gravity):
         self._cell_size = cell_size
         self._playfield = playfield
         self._block_generator = block_generator
         self._display = display
         self._clock = clock
+        self._gravity = gravity
 
     def start(self):
 
         running = True
 
         self._block_generator.create_random_block()
+        self._gravity.next_gravity()
 
         while running:
 
@@ -21,10 +23,13 @@ class GameLoop:
 
             self._block_locking_check()
 
+            #self._gravity_check()
+
             self._playfield.all_sprites.draw(self._display)
 
             pygame.display.update()
 
+            self._clock.gravity_tick(self._gravity.gravity_step)
             self._clock.tick_tock(60)
 
     def _event_handling(self):
@@ -62,4 +67,7 @@ class GameLoop:
             self._clock.lock_counter_reset()
 
     def _gravity_check(self):
-        pass
+        if self._clock.gravity_counter >= 256:
+            while self._clock.gravity_counter >= 256:
+                self._playfield.move_group(self._playfield.active_block, 0, self._cell_size)
+                self._clock.gravity_counter - 256

@@ -9,7 +9,9 @@ class Clock:
 
     def tick_tock(self, fps):
         self._clock.tick(fps)
-        self.gravity_counter +=1
+
+    def gravity_tick(self, gravity):
+        self.gravity_counter += gravity
 
     def lock_counter_tick(self):
         self.lock_counter += 1
