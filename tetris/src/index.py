@@ -31,6 +31,8 @@ PLAYFIELD_MAP = [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
 TEST_BLOCK_T = ([["x", "x", "x", "x", 2, 2, 2, "x", "x", "x", "x", "x"],
                 ["x", "x", "x", "x", "x", 2, "x", "x", "x", "x", "x", "x"]], (153, 51, 255))
 
+GRAVITY_LIST = [60]
+
 # TEST_BLOCK_1 =  ([["x", "x", "x", "x", 2, "x", "x", "x", "x", "x", "x", "x"],
 # ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x"]], (153, 51, 255))
 
@@ -47,11 +49,13 @@ def main():
     display_width = width * CELL_SIZE
     display = pygame.display.set_mode((display_width, display_height))
 
-    playfield = Playfield(PLAYFIELD_MAP, CELL_SIZE)
+    clock = Clock()
+
+    playfield = Playfield(PLAYFIELD_MAP, CELL_SIZE, clock)
 
     playfield.all_sprites.draw(display)
 
-    clock = Clock(playfield)
+
 
     block_generator = BlockGenerator(playfield, BLOCKS)
 

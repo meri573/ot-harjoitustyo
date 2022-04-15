@@ -2,16 +2,15 @@ import pygame
 
 
 class Clock:
-    def __init__(self, playfield):
+    def __init__(self):
         self._clock = pygame.time.Clock()
-        self._lock_counter = 0
-        self._playfield = playfield
+        self.lock_counter = 0
 
-    def tick(self, fps):
+    def tick_tock(self, fps):
         self._clock.tick(fps)
-        if self._playfield.can_move_down():
-            self._lock_counter += 1
-            if self._lock_counter > 30:
-                self._playfield.move_active_block_to_locked()
-        else:
-            self._lock_counter = 0
+
+    def lock_counter_tick(self):
+        self.lock_counter += 1
+
+    def lock_counter_reset(self):
+        self.lock_counter = 0
