@@ -5,7 +5,7 @@ from sprites.block import Block
 
 
 class Playfield:
-    def __init__(self, playfield_map, cell_size, clock):
+    def __init__(self, playfield_map, cell_size):
         self.cell_size = cell_size
         self.walls = pygame.sprite.Group()
         self.empty = pygame.sprite.Group()
@@ -15,8 +15,6 @@ class Playfield:
         self.all_sprites = pygame.sprite.Group()
 
         self.initialize_sprites(playfield_map)
-
-        self._clock = clock
 
     def initialize_sprites(self, playfield_map, color=(255, 255, 255)):
         height = len(playfield_map)
@@ -80,11 +78,3 @@ class Playfield:
     def can_move_down(self):
         return self._group_can_move(self.active_block, 0, self.cell_size)
 
-    def block_locking_check(self):
-        if not self.can_move_down():
-            self._clock.lock_counter_tick()
-            if self._clock.lock_counter > 30:
-                self.move_active_block_to_locked()
-                self._block
-        else:
-            self._clock.lock_counter_reset()

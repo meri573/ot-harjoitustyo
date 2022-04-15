@@ -114,7 +114,7 @@ class TestPlayfield(unittest.TestCase):
     def test_lock_block(self):
         self.block_generator.create_random_block()
 
-        self.playfield.move_active_block_to_inactive()
+        self.playfield.move_active_block_to_locked()
 
         self.assertEqual(len(self.playfield.active_block), 0)
         self.assertNotEqual(len(self.playfield.locked_blocks), 0)

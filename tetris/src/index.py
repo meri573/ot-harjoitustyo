@@ -51,7 +51,7 @@ def main():
 
     clock = Clock()
 
-    playfield = Playfield(PLAYFIELD_MAP, CELL_SIZE, clock)
+    playfield = Playfield(PLAYFIELD_MAP, CELL_SIZE)
 
     playfield.all_sprites.draw(display)
 

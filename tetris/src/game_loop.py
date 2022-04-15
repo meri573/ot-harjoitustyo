@@ -19,7 +19,7 @@ class GameLoop:
 
             self._event_handling()
 
-            self._playfield.block_locking_check()
+            self._block_locking_check()
 
             self._playfield.all_sprites.draw(self._display)
 
@@ -51,3 +51,14 @@ class GameLoop:
                 # if keys[K_s]:
                 #     pass
                 # if keys[K_d]:
+
+    def _block_locking_check(self):
+        if not self._playfield.can_move_down():
+            self._clock.lock_counter_tick()
+            if self._clock.lock_counter > 30:
+                self._playfield.move_active_block_to_locked()
+                self._block_generator.create_random_block()
+        else:
+            self._clock.lock_counter_reset()
+
+
