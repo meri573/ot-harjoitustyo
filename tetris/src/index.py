@@ -50,12 +50,12 @@ S_BLOCK = ([["x", "x", "x", "x", "x", 2, 2, "x", "x", "x", "x", "x"],
 O_BLOCK = ([["x", "x", "x", "x", 2, 2, "x", "x", "x", "x", "x", "x"],
             ["x", "x", "x", "x", 2, 2, "x", "x", "x", "x", "x", "x"]], (255, 255, 100))
 
-GRAVITY_LIST = [128,128]
+GRAVITY_LIST = [128, 128]
 
 # TEST_BLOCK_1 =  ([["x", "x", "x", "x", 2, "x", "x", "x", "x", "x", "x", "x"],
 # ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x"]], (153, 51, 255))
 
-BLOCKS = [T_BLOCK,I_BLOCK,L_BLOCK,J_BLOCK,Z_BLOCK,S_BLOCK,O_BLOCK]
+BLOCKS = [T_BLOCK, I_BLOCK, L_BLOCK, J_BLOCK, Z_BLOCK, S_BLOCK, O_BLOCK]
 
 
 def main():
@@ -76,11 +76,10 @@ def main():
 
     playfield.all_sprites.draw(display)
 
-
-
     block_generator = BlockGenerator(playfield, BLOCKS)
 
-    game_loop = GameLoop(CELL_SIZE, playfield, block_generator, display, clock, gravity)
+    game_loop = GameLoop(CELL_SIZE, playfield,
+                         block_generator, display, clock, gravity)
 
     game_loop.start()
 

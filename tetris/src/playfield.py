@@ -77,4 +77,3 @@ class Playfield:
 
     def can_move_down(self):
         return self._group_can_move(self.active_block, 0, self.cell_size)
-

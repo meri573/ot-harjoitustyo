@@ -1,5 +1,6 @@
 import pygame
 
+
 class Gravity:
     def __init__(self, gravity_list):
         self._gravity_list = gravity_list

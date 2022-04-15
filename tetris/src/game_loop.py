@@ -19,8 +19,7 @@ class GameLoop:
 
         while running:
 
-            #gravity_check breaks block movement for some reason
-            #self._gravity_check()
+            self._gravity_check()
 
             self._event_handling()
 
@@ -70,5 +69,6 @@ class GameLoop:
     def _gravity_check(self):
         if self._clock.gravity_counter >= 256:
             while self._clock.gravity_counter >= 256:
-                self._playfield.move_group(self._playfield.active_block, 0, self._cell_size)
-                self._clock.gravity_counter - 256
+                self._playfield.move_group(
+                    self._playfield.active_block, 0, self._cell_size)
+                self._clock.gravity_counter -= 256
