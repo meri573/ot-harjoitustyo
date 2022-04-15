@@ -3,7 +3,7 @@ import pygame
 class Gravity:
     def __init__(self, gravity_list):
         self._gravity_list = gravity_list
-        self.gravity = 0
+        self.gravity_step = 0
         self._i = -1
 
     def next_gravity(self):
