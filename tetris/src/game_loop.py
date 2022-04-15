@@ -19,11 +19,12 @@ class GameLoop:
 
         while running:
 
+            #gravity_check breaks block movement for some reason
+            #self._gravity_check()
+
             self._event_handling()
 
             self._block_locking_check()
-
-            self._gravity_check()
 
             self._playfield.all_sprites.draw(self._display)
 
