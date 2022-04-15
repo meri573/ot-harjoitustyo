@@ -14,5 +14,5 @@
 |14.4   |1     |palikan lukitus|
 |15.4   |1     |palikan lukitus|
 |15.4   |1.5   |palikan painovoima|
-|15.4   |1.5   |mahdollisten palikoiden lisäys|
-|yht    |18.5  |  |
+|15.4   |0.5   |mahdollisten palikoiden lisäys|
+|yht    |19    |  |
