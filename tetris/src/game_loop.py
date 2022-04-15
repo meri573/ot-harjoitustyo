@@ -23,7 +23,7 @@ class GameLoop:
 
             self._block_locking_check()
 
-            #self._gravity_check()
+            self._gravity_check()
 
             self._playfield.all_sprites.draw(self._display)
 
