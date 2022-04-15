@@ -12,5 +12,7 @@
 |8.4    |1     |palikoiden liikuttamisfunktioiden aloitus|
 |14.4   |2     |palikan liikuttamisfunktioiden testit ja bugien korjaus|
 |14.4   |1     |palikan lukitus|
-|14.4   |1     |palikan lukitus|
-|yht    |16  |  |
+|15.4   |1     |palikan lukitus|
+|15.4   |1.5   |palikan painovoima|
+|15.4   |1.5   |mahdollisten palikoiden lisäys|
+|yht    |18.5  |  |
