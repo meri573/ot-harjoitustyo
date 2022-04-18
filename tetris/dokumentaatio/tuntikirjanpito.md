@@ -16,4 +16,5 @@
 |15.4   |1.5   |palikan painovoima|
 |15.4   |0.5   |mahdollisten palikoiden määrän lisäys|
 |15.4   |1     |palikan painovoima|
-|yht    |20    |  |
+|18.4   |2     |täysien linjojen poisto|
+|yht    |22    |  |
