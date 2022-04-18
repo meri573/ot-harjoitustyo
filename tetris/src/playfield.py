@@ -7,6 +7,7 @@ from sprites.block import Block
 class Playfield:
     def __init__(self, playfield_map, cell_size):
         self.cell_size = cell_size
+        self.width = 0
         self.walls = pygame.sprite.Group()
         self.empty = pygame.sprite.Group()
         self.active_block = pygame.sprite.Group()
@@ -18,10 +19,10 @@ class Playfield:
 
     def initialize_sprites(self, playfield_map, color=(255, 255, 255)):
         height = len(playfield_map)
-        width = len(playfield_map[0])
+        self.width = len(playfield_map[0])
 
         for y_index in range(height):
-            for x_index in range(width):
+            for x_index in range(self.width):
                 cell = playfield_map[y_index][x_index]
                 normalized_x = x_index * self.cell_size
                 normalized_y = y_index * self.cell_size
@@ -77,3 +78,45 @@ class Playfield:
 
     def can_move_down(self):
         return self._group_can_move(self.active_block, 0, self.cell_size)
+
+    def start_locking(self):
+
+        coordinates = self._get_active_block_y_coordinates()
+        
+        self.move_active_block_to_locked()
+
+        lines_removed_and_blocks_to_move = self._remove_full_lines(coordinates)
+
+        self._move_remaining_lines_down(lines_removed_and_blocks_to_move, min(coordinates))
+
+    def _get_active_block_y_coordinates(self):
+        block_y_coordinates = []
+        for block_sprite in pygame.sprite.Group.sprites(self.active_block):
+            block_y_coordinates.append(block_sprite.rect.y)
+            return set(block_y_coordinates)
+
+
+    #bad code alert !!!
+    #also gets blocks that need to be moved down
+    def _remove_full_lines(self, coordinates):
+        lines_removed = 0
+        lines_to_be_moved = []
+        min_coordinate = min(coordinates)
+
+        for y_coordinate in coordinates:
+            sprite_list = []
+            for block_sprite in pygame.sprite.Group.sprites(self.locked_blocks):
+                if block_sprite.rect.y == y_coordinate:
+                    sprite_list.append(block_sprite)
+                elif block_sprite.rect.y < min_coordinate:
+                    lines_to_be_moved.append(block_sprite)
+
+            if len(sprite_list) == self.width - 2:
+                lines_removed += 1
+                for block_sprite in sprite_list:
+                    block_sprite.kill()
+        return (lines_removed, lines_to_be_moved)
+
+    def _move_remaining_lines_down(self, lines_removed_and_blocks_to_move, min_coordinate):
+        for block_sprite in lines_removed_and_blocks_to_move[1]:
+            self.move_block(block_sprite, 0, lines_removed_and_blocks_to_move[0] * self.cell_size)

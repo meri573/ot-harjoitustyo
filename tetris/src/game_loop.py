@@ -61,7 +61,7 @@ class GameLoop:
         if not self._playfield.can_move_down():
             self._clock.lock_counter_tick()
             if self._clock.lock_counter > 30:
-                self._playfield.move_active_block_to_locked()
+                self._playfield.start_locking()
                 self._block_generator.create_random_block()
         else:
             self._clock.lock_counter_reset()
