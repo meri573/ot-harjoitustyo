@@ -86,8 +86,8 @@ class Playfield:
         self.move_active_block_to_locked()
 
         lines_removed_y = self._remove_full_lines(coordinates)
-        if len(lines_removed_y) > 0: 
-            self._move_remaining_lines_down(lines_removed_y, min(coordinates))
+        if len(lines_removed_y) > 0:
+            self._move_remaining_lines_down(lines_removed_y)
 
     def _get_active_block_y_coordinates(self):
         block_y_coordinates = []
@@ -95,11 +95,10 @@ class Playfield:
             block_y_coordinates.append(block_sprite.rect.y)
         return set(block_y_coordinates)
 
+    # (probably) bad code alert !!!
 
-    #(probably) bad code alert !!!
     def _remove_full_lines(self, coordinates):
         lines_removed_y = []
-        min_coordinate = min(coordinates)
 
         for y_coordinate in coordinates:
             sprite_list = []
@@ -113,7 +112,8 @@ class Playfield:
                     pygame.sprite.Sprite.kill(block_sprite)
         return lines_removed_y
 
-    def _move_remaining_lines_down(self, lines_removed_and_blocks_to_move, min_coordinate):
+    def _move_remaining_lines_down(self, lines_removed_y):
         for block_sprite in self.locked_blocks:
-            if block_sprite.rect.y < min(lines_removed_and_blocks_to_move):
-                self.move_block(block_sprite, 0, len(lines_removed_and_blocks_to_move) * self.cell_size)
+            if block_sprite.rect.y < min(lines_removed_y):
+                self.move_block(block_sprite, 0, len(
+                    lines_removed_y) * self.cell_size)

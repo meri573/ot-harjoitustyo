@@ -120,7 +120,8 @@ class TestPlayfield(unittest.TestCase):
         self.assertNotEqual(len(self.playfield.locked_blocks), 0)
 
     def test_full_lines_cleared_correctly(self):
-        TEST_BLOCK = ([["x", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "x"]], (153, 51, 255))        
+        TEST_BLOCK = (
+            [["x", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "x"]], (153, 51, 255))
         BLOCKS = [TEST_BLOCK]
         block_generator = BlockGenerator(self.playfield, BLOCKS)
         block_generator.create_random_block()
@@ -131,7 +132,7 @@ class TestPlayfield(unittest.TestCase):
 
     def test_multiple_full_lines_cleared_correctly(self):
         TEST_BLOCK = ([["x", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "x"],
-                        ["x", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "x"]], (153, 51, 255))        
+                       ["x", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "x"]], (153, 51, 255))
         BLOCKS = [TEST_BLOCK]
         block_generator = BlockGenerator(self.playfield, BLOCKS)
         block_generator.create_random_block()
@@ -142,7 +143,7 @@ class TestPlayfield(unittest.TestCase):
 
     def test_remaining_lines_moved_down_correctly(self):
         TEST_BLOCK = ([["x", "x", "x", "x", "x", "x", "x", 2, 2, "x", "x", "x"],
-                        ["x", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "x"]], (153, 51, 255))        
+                       ["x", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "x"]], (153, 51, 255))
         BLOCKS = [TEST_BLOCK]
         block_generator = BlockGenerator(self.playfield, BLOCKS)
         block_generator.create_random_block()
