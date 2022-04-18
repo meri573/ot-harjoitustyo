@@ -20,9 +20,9 @@ Sovellus on tetristä muistuttava palikoiden kasaamispeli.
       
    - [ ] pelaajan annetaan nähdä etukäteen minkä muotoinen seuraava ilmestyvä palikka on
    
-   - [ ] kun palikat ovat täyttäneet rivin jokaisen neliön rivi katoaa ja pelaaja saa pisteitä
-   
-    - [ ] mitä enemmän rivejä katoaa kerralla sitä enemmän pisteitä pelaaja saa
+   - [x] kun palikat ovat täyttäneet rivin jokaisen neliön rivi katoaa
+      - [ ] pelaaja ansaitsee näin pisteitä
+        - [ ] mitä enemmän rivejä katoaa kerralla sitä enemmän pisteitä pelaaja saa
    
    
   - [ ] Pelin jälkeen käyttäjä voi tallentaa saavutetun pistemäärän ja pelin keston omalla nimimerkillään
