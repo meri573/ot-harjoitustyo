@@ -152,3 +152,21 @@ class TestPlayfield(unittest.TestCase):
 
         for sprite123 in self.playfield.locked_blocks:
             self.assertEqual(sprite123.rect.y, CELL_SIZE)
+    
+    def test_rotation(self):
+        TEST_BLOCK = ([["x", "x", "x", "x", "x", 2, 2, "x", "x", "x", "x", "x"]], (153, 51, 255))
+        BLOCKS = [TEST_BLOCK]
+        block_generator = BlockGenerator(self.playfield, BLOCKS)
+        block_generator.create_random_block()
+
+        
+        lista = []
+
+        self.playfield.rotate_active_block(-90)
+        for block_sprite in self.playfield.active_block:
+            print(block_sprite.offset_vector)
+            print(block_sprite.rect.x)
+            print(block_sprite.rect.y)
+            if block_sprite.rect.y == 1 * self.playfield.cell_size:
+                lista.append(block_sprite)
+        self.assertEqual(len(lista), 1)

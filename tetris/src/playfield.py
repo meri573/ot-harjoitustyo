@@ -117,3 +117,22 @@ class Playfield:
             if block_sprite.rect.y < min(lines_removed_y):
                 self.move_block(block_sprite, 0, len(
                     lines_removed_y) * self.cell_size)
+
+    def rotate_active_block(self, deg):
+
+        if self._can_rotate(self.active_block, deg):
+            for block_sprite in self.active_block:
+                rotated_vector = block_sprite.offset_vector.rotate(deg)
+                delta_x = -block_sprite.offset_vector.x + rotated_vector.x
+                delta_y = -block_sprite.offset_vector.y + rotated_vector.y
+                self.move_block(block_sprite, delta_x, delta_y)
+                block_sprite.offset_vector = rotated_vector
+
+    def _can_rotate(self, group, deg):
+        for block_sprite in self.active_block:
+            rotated_vector = block_sprite.offset_vector.rotate(deg)
+            delta_x = -block_sprite.offset_vector.x + rotated_vector.x
+            delta_y = -block_sprite.offset_vector.y + rotated_vector.y
+            if not self._can_move(block_sprite, delta_x, delta_y):
+                return False
+        return True

@@ -46,6 +46,11 @@ class GameLoop:
                     self._playfield.move_group(
                         self._playfield.active_block, 0, self._cell_size)
 
+                if event.key == pygame.K_s:
+                    self._playfield.rotate_active_block(90)
+                if event.key == pygame.K_d:
+                    self._playfield.rotate_active_block(-90)
+
                 # keys = pygame.key.get_pressed()
                 # if keys[K_LEFT]:
 
