@@ -14,8 +14,10 @@ class Block(pygame.sprite.Sprite):
         self.pivot_point = (5.5*self.cell_size, 0.5*self.cell_size)
 
         self.offset_vector = pygame.Vector2()
-        self.offset_vector.x = (normalized_x + 0.5 * self.cell_size) - self.pivot_point[0]
-        self.offset_vector.y = (normalized_y + 0.5 * self.cell_size) - self.pivot_point[1] 
+        self.offset_vector.x = (normalized_x + 0.5 *
+                                self.cell_size) - self.pivot_point[0]
+        self.offset_vector.y = (normalized_y + 0.5 *
+                                self.cell_size) - self.pivot_point[1]
 
         self.rect = self.image.get_rect()
         self.rect.x = normalized_x

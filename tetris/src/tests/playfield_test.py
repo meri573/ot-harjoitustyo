@@ -152,14 +152,14 @@ class TestPlayfield(unittest.TestCase):
 
         for sprite123 in self.playfield.locked_blocks:
             self.assertEqual(sprite123.rect.y, CELL_SIZE)
-    
+
     def test_rotation(self):
-        TEST_BLOCK = ([["x", "x", "x", "x", "x", 2, 2, "x", "x", "x", "x", "x"]], (153, 51, 255))
+        TEST_BLOCK = ([["x", "x", "x", "x", "x", 2, 2, "x",
+                      "x", "x", "x", "x"]], (153, 51, 255))
         BLOCKS = [TEST_BLOCK]
         block_generator = BlockGenerator(self.playfield, BLOCKS)
         block_generator.create_random_block()
 
-        
         lista = []
 
         self.playfield.rotate_active_block(-90)

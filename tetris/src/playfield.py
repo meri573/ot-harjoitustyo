@@ -129,7 +129,7 @@ class Playfield:
                 block_sprite.offset_vector = rotated_vector
 
     def _can_rotate(self, group, deg):
-        for block_sprite in self.active_block:
+        for block_sprite in group:
             rotated_vector = block_sprite.offset_vector.rotate(deg)
             delta_x = -block_sprite.offset_vector.x + rotated_vector.x
             delta_y = -block_sprite.offset_vector.y + rotated_vector.y
