@@ -31,7 +31,7 @@ TEST_BLOCK_T = ([["x", "x", "x", "x", 2, 2, 2, "x", "x", "x", "x", "x"],
 
 BLOCKS = [TEST_BLOCK_T]
 
-CELL_SIZE = 50
+CELL_SIZE = 45
 
 
 class TestPlayfield(unittest.TestCase):
@@ -40,7 +40,7 @@ class TestPlayfield(unittest.TestCase):
         self.block_generator = BlockGenerator(self.playfield, BLOCKS)
 
     def create_sprite(self, x, y, cell_size):
-        return Block(x, y)
+        return Block(x, y, cell_size)
 
     def test_wall_created_in_correct_coordinates(self):
         PLAYFIELD_MAP_2 = [[0, 0],
@@ -129,3 +129,25 @@ class TestPlayfield(unittest.TestCase):
 
         self.assertEqual(len(self.playfield.locked_blocks), 0)
 
+    def test_multiple_full_lines_cleared_correctly(self):
+        TEST_BLOCK = ([["x", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "x"],
+                        ["x", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "x"]], (153, 51, 255))        
+        BLOCKS = [TEST_BLOCK]
+        block_generator = BlockGenerator(self.playfield, BLOCKS)
+        block_generator.create_random_block()
+
+        self.playfield.start_locking()
+
+        self.assertEqual(len(self.playfield.locked_blocks), 0)
+
+    def test_remaining_lines_moved_down_correctly(self):
+        TEST_BLOCK = ([["x", "x", "x", "x", "x", "x", "x", 2, 2, "x", "x", "x"],
+                        ["x", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "x"]], (153, 51, 255))        
+        BLOCKS = [TEST_BLOCK]
+        block_generator = BlockGenerator(self.playfield, BLOCKS)
+        block_generator.create_random_block()
+
+        self.playfield.start_locking()
+
+        for sprite123 in self.playfield.locked_blocks:
+            self.assertEqual(sprite123.rect.y, CELL_SIZE)
