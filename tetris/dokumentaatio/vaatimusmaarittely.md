@@ -16,7 +16,7 @@ Sovellus on tetristä muistuttava palikoiden kasaamispeli.
       - [ ] palikan pysähdyttyä laskuri nousee yhdellä ja laskurin täytyttyä se resetoi ja palikoiden nopeus alaspäin kasvaa
       
    - [x] pelaaja voi liikuttaa palikoita vasemmalle, oikealle ja alas
-      - [ ] pelaaja voi myös pyörittää palikoita kumpaankin suuntaan 90 astetta kerralla
+      - [x] pelaaja voi myös pyörittää palikoita kumpaankin suuntaan 90 astetta kerralla
       
    - [ ] pelaajan annetaan nähdä etukäteen minkä muotoinen seuraava ilmestyvä palikka on
    
