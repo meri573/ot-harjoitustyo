@@ -118,3 +118,14 @@ class TestPlayfield(unittest.TestCase):
 
         self.assertEqual(len(self.playfield.active_block), 0)
         self.assertNotEqual(len(self.playfield.locked_blocks), 0)
+
+    def test_full_lines_cleared_correctly(self):
+        TEST_BLOCK = ([["x", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "x"]], (153, 51, 255))        
+        BLOCKS = [TEST_BLOCK]
+        block_generator = BlockGenerator(self.playfield, BLOCKS)
+        block_generator.create_random_block()
+
+        self.playfield.start_locking()
+
+        self.assertEqual(len(self.playfield.locked_blocks), 0)
+
