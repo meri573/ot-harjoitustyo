@@ -14,3 +14,5 @@
 - kaikki tetriksen palikat voivat nyt generoitua
 - painovoima toimii
   - tällä hetkellä painovoima ei muutu
+- täydet rivit katoavat oikein
+- pelaaja voi pyörittää liikutettavaa palikkaa
