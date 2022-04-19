@@ -5,9 +5,11 @@ from sprites.block import Block
 
 
 class Playfield:
-    def __init__(self, playfield_map, cell_size):
+    def __init__(self, playfield_map, cell_size, pivot_point):
         self.cell_size = cell_size
         self.width = 0
+        self.pivot_point = pivot_point
+
         self.walls = pygame.sprite.Group()
         self.empty = pygame.sprite.Group()
         self.active_block = pygame.sprite.Group()
@@ -35,7 +37,7 @@ class Playfield:
                         Wall(normalized_x, normalized_y, self.cell_size))
                 elif cell == 2:
                     self.active_block.add(
-                        Block(normalized_x, normalized_y, self.cell_size, color))
+                        Block(normalized_x, normalized_y, self.cell_size, color, self.pivot_point))
 
         self.all_sprites.add(
             self.walls,

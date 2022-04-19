@@ -57,6 +57,8 @@ GRAVITY_LIST = [4, 128]
 
 BLOCKS = [T_BLOCK, I_BLOCK, L_BLOCK, J_BLOCK, Z_BLOCK, S_BLOCK, O_BLOCK]
 
+PIVOT_POINT = (5.5 * CELL_SIZE,0.5 * CELL_SIZE)
+
 
 def main():
 
@@ -72,7 +74,7 @@ def main():
 
     gravity = Gravity(GRAVITY_LIST)
 
-    playfield = Playfield(PLAYFIELD_MAP, CELL_SIZE)
+    playfield = Playfield(PLAYFIELD_MAP, CELL_SIZE, PIVOT_POINT)
 
     playfield.all_sprites.draw(display)
 

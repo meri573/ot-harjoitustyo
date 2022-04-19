@@ -33,10 +33,12 @@ BLOCKS = [TEST_BLOCK_T]
 
 CELL_SIZE = 45
 
+PIVOT_POINT = (5.5*CELL_SIZE,0.5*CELL_SIZE)
+
 
 class TestPlayfield(unittest.TestCase):
     def setUp(self):
-        self.playfield = Playfield(PLAYFIELD_MAP, CELL_SIZE)
+        self.playfield = Playfield(PLAYFIELD_MAP, CELL_SIZE, PIVOT_POINT)
         self.block_generator = BlockGenerator(self.playfield, BLOCKS)
 
     def create_sprite(self, x, y, cell_size):
@@ -46,7 +48,7 @@ class TestPlayfield(unittest.TestCase):
         PLAYFIELD_MAP_2 = [[0, 0],
                            [0, 1], ]
 
-        temp_playfield = Playfield(PLAYFIELD_MAP_2, CELL_SIZE)
+        temp_playfield = Playfield(PLAYFIELD_MAP_2, CELL_SIZE, PIVOT_POINT)
 
         sprites = temp_playfield.walls.sprites()
 
@@ -97,7 +99,7 @@ class TestPlayfield(unittest.TestCase):
         TEST_BLOCK_1 = ([[2]], (50, 50, 50))
         BLOCKS = [TEST_BLOCK_1]
 
-        temp_playfield = Playfield(PLAYFIELD_MAP_3, CELL_SIZE)
+        temp_playfield = Playfield(PLAYFIELD_MAP_3, CELL_SIZE, PIVOT_POINT)
 
         block_generator = BlockGenerator(temp_playfield, BLOCKS)
         block_generator.create_random_block()
