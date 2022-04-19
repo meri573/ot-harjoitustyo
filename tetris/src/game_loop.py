@@ -9,19 +9,20 @@ class GameLoop:
         self._display = display
         self._clock = clock
         self._gravity = gravity
+        self._level = 0
 
     def start(self):
 
         running = True
 
         self._block_generator.create_random_block()
-        self._gravity.next_gravity()
+        self._gravity.check_level(self._level)
 
         while running:
 
-            self._gravity_check()
-
             self._event_handling()
+
+            self._gravity_check()
 
             self._block_locking_check()
 
@@ -67,7 +68,7 @@ class GameLoop:
             self._clock.lock_counter_tick()
             if self._clock.lock_counter > 30:
                 self._playfield.start_locking()
-                self._block_generator.create_random_block()
+                self._block_creation_procedure()
         else:
             self._clock.lock_counter_reset()
 
@@ -77,3 +78,9 @@ class GameLoop:
                 self._playfield.move_group(
                     self._playfield.active_block, 0, self._cell_size)
                 self._clock.gravity_counter -= 256
+
+    def _block_creation_procedure(self):
+        self._block_generator.create_random_block()
+        if self._level % 100 != 99:
+            self._level += 1
+            self._gravity.check_level(self._level)

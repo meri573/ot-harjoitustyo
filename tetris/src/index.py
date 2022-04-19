@@ -53,6 +53,9 @@ O_BLOCK = ([["x", "x", "x", "x", "x", 2, 2, "x", "x", "x", "x", "x"],
 GRAVITY_LIST = [4, 6, 8, 10, 12, 16, 32, 48, 64, 80, 96, 112, 128, 144, 4,
                 32, 64, 96, 128, 160, 192, 224, 256, 512, 768, 1024, 1280, 1024, 768, 5120]
 
+LEVEL_SET = {0, 30, 35, 40, 50, 60, 70, 80, 90, 100, 120, 140, 160, 170, 200,
+             220, 230, 233, 236, 239, 243, 247, 251, 300, 330, 360, 400, 420, 450, 500}
+
 # TEST_BLOCK_1 =  ([["x", "x", "x", "x", 2, "x", "x", "x", "x", "x", "x", "x"],
 # ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x"]], (153, 51, 255))
 
@@ -73,7 +76,7 @@ def main():
 
     clock = Clock()
 
-    gravity = Gravity(GRAVITY_LIST)
+    gravity = Gravity(GRAVITY_LIST, LEVEL_SET)
 
     playfield = Playfield(PLAYFIELD_MAP, CELL_SIZE, PIVOT_POINT)
 

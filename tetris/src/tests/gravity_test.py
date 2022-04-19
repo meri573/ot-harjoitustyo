@@ -3,8 +3,9 @@ import pygame
 
 from gravity import Gravity
 
-GRAVITY_LIST = [4,50]
-LEVEL_SET = {0,30}
+GRAVITY_LIST = [4, 50]
+LEVEL_SET = {0, 30}
+
 
 class TestGravity(unittest.TestCase):
     def setUp(self):
@@ -23,4 +24,3 @@ class TestGravity(unittest.TestCase):
         self.gravity.check_level(30)
         self.gravity.check_level(30)
         self.assertEqual(self.gravity.gravity_step, 50)
-

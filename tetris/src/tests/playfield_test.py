@@ -42,7 +42,7 @@ class TestPlayfield(unittest.TestCase):
         self.block_generator = BlockGenerator(self.playfield, BLOCKS)
 
     def create_sprite(self, x, y, cell_size):
-        return Block(x, y, cell_size, (0,0,0), PIVOT_POINT)
+        return Block(x, y, cell_size, (0, 0, 0), PIVOT_POINT)
 
     def test_wall_created_in_correct_coordinates(self):
         PLAYFIELD_MAP_2 = [[0, 0],
