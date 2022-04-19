@@ -18,4 +18,5 @@
 |15.4   |1     |palikan painovoima|
 |18.4   |3.5   |täysien linjojen poisto|
 |18.4   |3.5   |palikoiden pyöritys|
-|yht    |27  |  |
+|19.4   |3     |palikoiden painovoiman muuttuminen|
+|yht    |30  |  |
