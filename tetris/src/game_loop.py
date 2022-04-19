@@ -70,7 +70,10 @@ class GameLoop:
                 # janky code alert
                 # self._playfield.start_locking() also returns amount of lines cleared
                 # they are then added to self._level
-                self._level += self._playfield.start_locking()
+                cleared_line_count = self._playfield.start_locking()
+                for i in range(cleared_line_count):
+                    self._level += 1
+                    self._gravity.check_level(self._level)
                 self._block_creation_procedure()
         else:
             self._clock.lock_counter_reset()
