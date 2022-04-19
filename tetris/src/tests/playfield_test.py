@@ -162,7 +162,7 @@ class TestPlayfield(unittest.TestCase):
 
         lista = []
 
-        self.playfield.rotate_active_block(-90)
+        self.playfield.rotate_active_block(90)
         for block_sprite in self.playfield.active_block:
             print(block_sprite.offset_vector)
             print(block_sprite.rect.x)
