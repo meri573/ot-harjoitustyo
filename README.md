@@ -3,6 +3,10 @@
 ## Tetris
 Tetris toteutettu pygame-kirjaston avulla.
 
+Pelin tavoitteena on muodostaa pelialueen ylärajaan esiintyvistä palikoista täysiä rivejä. Rivin täytyttyä se katoaa ja pelaajalle kertyy pisteitä. (pisteet ei vielä implementoitu)
+
+Palikat liikkuvat automaattisesti kohti pelialueen pohjaa ja mitä pidempään peli jatkuu sitä nopeampaa tämä liike on. 
+
 ## Dokumentaatio
  
 [vaatimusmaarittely.md](https://github.com/meri573/ot-harjoitustyo/blob/main/tetris/dokumentaatio/vaatimusmaarittely.md)
