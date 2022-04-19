@@ -4,6 +4,7 @@ from clock import Clock
 from game_loop import GameLoop
 from block_generator import BlockGenerator
 from gravity import Gravity
+from renderer import Renderer
 
 CELL_SIZE = 45
 
@@ -80,12 +81,14 @@ def main():
 
     playfield = Playfield(PLAYFIELD_MAP, CELL_SIZE, PIVOT_POINT)
 
+    renderer = Renderer(display, playfield)
+
     playfield.all_sprites.draw(display)
 
     block_generator = BlockGenerator(playfield, BLOCKS)
 
     game_loop = GameLoop(CELL_SIZE, playfield,
-                         block_generator, display, clock, gravity)
+                         block_generator, renderer, clock, gravity)
 
     game_loop.start()
 

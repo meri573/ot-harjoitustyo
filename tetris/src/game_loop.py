@@ -2,11 +2,11 @@ import pygame
 
 
 class GameLoop:
-    def __init__(self, cell_size, playfield, block_generator, display, clock, gravity):
+    def __init__(self, cell_size, playfield, block_generator, renderer, clock, gravity):
         self._cell_size = cell_size
         self._playfield = playfield
         self._block_generator = block_generator
-        self._display = display
+        self._renderer = renderer
         self._clock = clock
         self._gravity = gravity
         self._level = 0
@@ -26,9 +26,7 @@ class GameLoop:
 
             self._block_locking_check()
 
-            self._playfield.all_sprites.draw(self._display)
-
-            pygame.display.update()
+            self._renderer.render()
 
             self._clock.gravity_tick(self._gravity.gravity_step)
             self._clock.tick_tock(60)
