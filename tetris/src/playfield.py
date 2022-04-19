@@ -90,6 +90,7 @@ class Playfield:
         lines_removed_y = self._remove_full_lines(coordinates)
         if len(lines_removed_y) > 0:
             self._move_remaining_lines_down(lines_removed_y)
+        return len(lines_removed_y)
 
     def _get_active_block_y_coordinates(self):
         block_y_coordinates = []

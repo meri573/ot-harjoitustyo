@@ -67,7 +67,10 @@ class GameLoop:
         if not self._playfield.can_move_down():
             self._clock.lock_counter_tick()
             if self._clock.lock_counter > 30:
-                self._playfield.start_locking()
+                # janky code alert
+                # self._playfield.start_locking() also returns amount of lines cleared
+                # they are then added to self._level
+                self._level += self._playfield.start_locking()
                 self._block_creation_procedure()
         else:
             self._clock.lock_counter_reset()

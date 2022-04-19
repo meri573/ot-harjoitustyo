@@ -132,6 +132,17 @@ class TestPlayfield(unittest.TestCase):
 
         self.assertEqual(len(self.playfield.locked_blocks), 0)
 
+    def test_amount_of_cleared_lines_returned_correctly(self):
+        TEST_BLOCK = (
+            [["x", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "x"]], (153, 51, 255))
+        BLOCKS = [TEST_BLOCK]
+        block_generator = BlockGenerator(self.playfield, BLOCKS)
+        block_generator.create_random_block()
+
+        line_clear_count = self.playfield.start_locking()
+
+        self.assertEqual(line_clear_count, 1)
+
     def test_multiple_full_lines_cleared_correctly(self):
         TEST_BLOCK = ([["x", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "x"],
                        ["x", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "x"]], (153, 51, 255))
