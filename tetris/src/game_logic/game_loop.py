@@ -25,6 +25,9 @@ class GameLoop:
             self._gravity_check()
 
             self._block_locking_check()
+            if self._playfield.check_if_active_block_inside_locked_block():
+                print(f"you reached level {self._level}")
+                break
 
             self._renderer.render()
 

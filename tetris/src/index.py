@@ -1,10 +1,10 @@
 import pygame
-from playfield import Playfield
-from clock import Clock
-from game_loop import GameLoop
-from block_generator import BlockGenerator
-from gravity import Gravity
-from renderer import Renderer
+from game_logic.playfield import Playfield
+from game_logic.clock import Clock
+from game_logic.game_loop import GameLoop
+from game_logic.block_generator import BlockGenerator
+from game_logic.gravity import Gravity
+from ui.renderer import Renderer
 
 CELL_SIZE = 45
 

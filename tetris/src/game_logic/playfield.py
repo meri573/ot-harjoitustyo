@@ -139,3 +139,9 @@ class Playfield:
             if not self._can_move(block_sprite, delta_x, delta_y):
                 return False
         return True
+
+    def check_if_active_block_inside_locked_block(self):
+        for sprite_block in self.active_block:
+            if pygame.sprite.spritecollideany(sprite_block, self.locked_blocks) != None:
+                return True
+        return False
