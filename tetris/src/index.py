@@ -50,14 +50,15 @@ S_BLOCK = ([["x", "x", "x", "x", "x", 2, 2, "x", "x", "x", "x", "x"],
 O_BLOCK = ([["x", "x", "x", "x", "x", 2, 2, "x", "x", "x", "x", "x"],
             ["x", "x", "x", "x", "x", 2, 2, "x", "x", "x", "x", "x"]], (255, 255, 100))
 
-GRAVITY_LIST = [4, 128]
+GRAVITY_LIST = [4, 6, 8, 10, 12, 16, 32, 48, 64, 80, 96, 112, 128, 144, 4,
+                32, 64, 96, 128, 160, 192, 224, 256, 512, 768, 1024, 1280, 1024, 768, 5120]
 
 # TEST_BLOCK_1 =  ([["x", "x", "x", "x", 2, "x", "x", "x", "x", "x", "x", "x"],
 # ["x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x", "x"]], (153, 51, 255))
 
 BLOCKS = [T_BLOCK, I_BLOCK, L_BLOCK, J_BLOCK, Z_BLOCK, S_BLOCK, O_BLOCK]
 
-PIVOT_POINT = (5.5 * CELL_SIZE,0.5 * CELL_SIZE)
+PIVOT_POINT = (5.5 * CELL_SIZE, 0.5 * CELL_SIZE)
 
 
 def main():

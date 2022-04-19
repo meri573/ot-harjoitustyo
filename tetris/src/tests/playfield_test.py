@@ -33,7 +33,7 @@ BLOCKS = [TEST_BLOCK_T]
 
 CELL_SIZE = 45
 
-PIVOT_POINT = (5.5*CELL_SIZE,0.5*CELL_SIZE)
+PIVOT_POINT = (5.5*CELL_SIZE, 0.5*CELL_SIZE)
 
 
 class TestPlayfield(unittest.TestCase):
@@ -42,7 +42,7 @@ class TestPlayfield(unittest.TestCase):
         self.block_generator = BlockGenerator(self.playfield, BLOCKS)
 
     def create_sprite(self, x, y, cell_size):
-        return Block(x, y, cell_size)
+        return Block(x, y, cell_size, (0,0,0), PIVOT_POINT)
 
     def test_wall_created_in_correct_coordinates(self):
         PLAYFIELD_MAP_2 = [[0, 0],
