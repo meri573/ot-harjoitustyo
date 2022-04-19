@@ -16,3 +16,9 @@
   - tällä hetkellä painovoima ei muutu
 - täydet rivit katoavat oikein
 - pelaaja voi pyörittää liikutettavaa palikkaa
+- palikoiden painovoima muuttuu tietyillä level laskurin arvoilla 
+  - level laskuri kasvaa aina kun uusi palikka luodaan tai linja poistetaan
+    - kun level % 100 == 99 vain rivin poisto kasvattaa level laskuria
+  - level laskuri ei ole tällä hetkellä näkyvissä pelaajalle
+- peli sulkeutuu jos uusi palikka on luomisen jälkeen lukitun palikan sisällä
+  - peli kirjaa komentolinjalle level laskimen arvon
