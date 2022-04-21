@@ -20,5 +20,6 @@
   - level laskuri kasvaa aina kun uusi palikka luodaan tai linja poistetaan
     - kun level % 100 == 99 vain rivin poisto kasvattaa level laskuria
   - level laskuri ei ole tällä hetkellä näkyvissä pelaajalle
+- pelaaja voi kerätä pisteitä poistamalla linjoja
 - peli sulkeutuu jos uusi palikka on luomisen jälkeen lukitun palikan sisällä
-  - peli kirjaa komentolinjalle level laskimen arvon
+  - peli kirjaa komentolinjalle pelaajan saavuttaman level laskimen arvon ja pistemäärän
