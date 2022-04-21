@@ -142,6 +142,6 @@ class Playfield:
 
     def check_if_active_block_inside_locked_block(self):
         for sprite_block in self.active_block:
-            if pygame.sprite.spritecollideany(sprite_block, self.locked_blocks) != None:
+            if pygame.sprite.spritecollideany(sprite_block, self.locked_blocks) is not None:
                 return True
         return False

@@ -1,7 +1,7 @@
 import pygame
 import unittest
-from playfield import Playfield
-from block_generator import BlockGenerator
+from game_logic.playfield import Playfield
+from game_logic.block_generator import BlockGenerator
 from sprites.block import Block
 
 PLAYFIELD_MAP = [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],

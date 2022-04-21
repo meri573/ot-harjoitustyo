@@ -1,7 +1,7 @@
 import unittest
 import pygame
 
-from gravity import Gravity
+from game_logic.gravity import Gravity
 
 GRAVITY_LIST = [4, 50]
 LEVEL_SET = {0, 30}

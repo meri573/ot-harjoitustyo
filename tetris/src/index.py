@@ -4,6 +4,7 @@ from game_logic.clock import Clock
 from game_logic.game_loop import GameLoop
 from game_logic.block_generator import BlockGenerator
 from game_logic.gravity import Gravity
+from game_logic.points import Points
 from ui.renderer import Renderer
 
 CELL_SIZE = 45
@@ -87,8 +88,10 @@ def main():
 
     block_generator = BlockGenerator(playfield, BLOCKS)
 
+    points = Points()
+
     game_loop = GameLoop(CELL_SIZE, playfield,
-                         block_generator, renderer, clock, gravity)
+                         block_generator, renderer, clock, gravity, points)
 
     game_loop.start()
 

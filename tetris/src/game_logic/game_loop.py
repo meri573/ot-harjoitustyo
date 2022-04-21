@@ -2,13 +2,14 @@ import pygame
 
 
 class GameLoop:
-    def __init__(self, cell_size, playfield, block_generator, renderer, clock, gravity):
+    def __init__(self, cell_size, playfield, block_generator, renderer, clock, gravity, points):
         self._cell_size = cell_size
         self._playfield = playfield
         self._block_generator = block_generator
         self._renderer = renderer
         self._clock = clock
         self._gravity = gravity
+        self._points = points
         self._level = 0
 
     def start(self):
@@ -26,6 +27,7 @@ class GameLoop:
 
             self._block_locking_check()
             if self._playfield.check_if_active_block_inside_locked_block():
+                print(f"you gained {self._points.points} points")
                 print(f"you reached level {self._level}")
                 break
 
@@ -72,6 +74,8 @@ class GameLoop:
                 # self._playfield.start_locking() also returns amount of lines cleared
                 # they are then added to self._level
                 cleared_line_count = self._playfield.start_locking()
+                if bool(cleared_line_count):
+                    self._points.add_points(cleared_line_count, self._level)
                 for i in range(cleared_line_count):
                     self._level += 1
                     self._gravity.check_level(self._level)
