@@ -19,4 +19,5 @@
 |18.4   |3.5   |täysien linjojen poisto|
 |18.4   |3.5   |palikoiden pyöritys|
 |19.4   |3     |palikoiden painovoiman muuttuminen|
+|21.4   |1     |pisteitten lasku|
 |yht    |30  |  |
