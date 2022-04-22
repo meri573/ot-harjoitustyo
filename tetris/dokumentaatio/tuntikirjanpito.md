@@ -21,5 +21,6 @@
 |19.4   |3     |palikoiden painovoiman muuttuminen|
 |21.4   |1     |pisteiden lasku|
 |22.4   |2     |liikuntanappien pohjassapito|
-|yht    |32  |  |
+|22.4   |1     |ui|
+|yht    |33  |  |
 
