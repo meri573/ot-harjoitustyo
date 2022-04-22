@@ -20,7 +20,7 @@ class Playfield:
 
     def initialize_sprites(self, playfield_map, color=(255, 255, 255)):
         height = len(playfield_map)
-        width = len(playfield_map[0])
+        self.width = len(playfield_map[0])
 
         for y_index in range(height):
             for x_index in range(self.width):
@@ -119,6 +119,13 @@ class Playfield:
             if block_sprite.rect.y < min(lines_removed_y):
                 self.move_block(block_sprite, 0, len(
                     lines_removed_y) * self.cell_size)
+
+            # bad code alert
+            # can causes issues when clearing more than 5 lines at once but should work for 4
+            elif block_sprite.rect.y < max(lines_removed_y):
+                for y_coordinate in lines_removed_y:
+                    if block_sprite.rect.y < y_coordinate:
+                        self.move_block(block_sprite, 0, 1 * self.cell_size)
 
     def rotate_active_block(self, deg):
 
