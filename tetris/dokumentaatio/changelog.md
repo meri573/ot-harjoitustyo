@@ -24,3 +24,4 @@
 - peli sulkeutuu jos uusi palikka on luomisen jälkeen lukitun palikan sisällä
   - peli kirjaa komentolinjalle pelaajan saavuttaman level laskimen arvon ja pistemäärän
 - liikkumisnapin pohjassa pito saa pienen viiveen jälkeen palikan liikumaan jatkuvasti siihen suuntaan
+- piste ja level laskurit lisätty näkyviin pelissä
