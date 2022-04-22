@@ -10,6 +10,9 @@ class GameLoop:
         self._clock = clock
         self._gravity = gravity
         self._points = points
+
+        self._last_pressed_key = None
+        
         self._level = 0
 
     def start(self):
@@ -43,28 +46,41 @@ class GameLoop:
                 if event.key == pygame.K_LEFT:
                     self._playfield.move_group(
                         self._playfield.active_block, -self._cell_size, 0)
+                    self._clock.set_last_pressed_key_frame()
                 if event.key == pygame.K_RIGHT:
                     self._playfield.move_group(
                         self._playfield.active_block, self._cell_size, 0)
+                    self._clock.set_last_pressed_key_frame()
                 if event.key == pygame.K_DOWN:
                     self._playfield.move_group(
                         self._playfield.active_block, 0, self._cell_size)
+                    self._clock.set_last_pressed_key_frame()
 
                 if event.key == pygame.K_s:
                     self._playfield.rotate_active_block(-90)
                 if event.key == pygame.K_d:
                     self._playfield.rotate_active_block(90)
 
-                # keys = pygame.key.get_pressed()
-                # if keys[K_LEFT]:
+        keys = pygame.key.get_pressed()
+        if self._autorepeat(pygame.K_LEFT, keys):
+            self._playfield.move_group(
+                self._playfield.active_block, -self._cell_size, 0)
 
-                # if keys[K_RIGHT]:
+        if self._autorepeat(pygame.K_RIGHT, keys):
+            self._playfield.move_group(
+                self._playfield.active_block, self._cell_size, 0)
 
-                # if keys[K_DOWN]:
+        if self._autorepeat(pygame.K_DOWN, keys):
+            self._playfield.move_group(
+                self._playfield.active_block, 0, self._cell_size)
 
-                # if keys[K_s]:
-                #     pass
-                # if keys[K_d]:
+    #def _set_last_pressed_key_and_tick(self, key):
+        #self._last_pressed_key = key
+        #self._clock.set_last_pressed_key_frame()
+
+    def _autorepeat(self, key, keys):
+        if keys[key] and self._clock.frame_counter - self._clock.last_pressed_key_frame > 15:
+            return self._clock.frame_counter - self._clock.last_autorepeat > 2
 
     def _block_locking_check(self):
         if not self._playfield.can_move_down():
