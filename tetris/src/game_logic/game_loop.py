@@ -12,7 +12,7 @@ class GameLoop:
         self._points = points
 
         self._last_pressed_key = None
-        
+
         self._level = 0
 
     def start(self):
@@ -40,7 +40,10 @@ class GameLoop:
             self._clock.tick_tock(60)
 
     def _event_handling(self):
+        self._handle_keydowns()
+        self._handle_pressed_keys()
 
+    def _handle_keydowns(self):
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
@@ -61,6 +64,7 @@ class GameLoop:
                 if event.key == pygame.K_d:
                     self._playfield.rotate_active_block(90)
 
+    def _handle_pressed_keys(self):
         keys = pygame.key.get_pressed()
         if self._autorepeat(pygame.K_LEFT, keys):
             self._playfield.move_group(
@@ -74,13 +78,14 @@ class GameLoop:
             self._playfield.move_group(
                 self._playfield.active_block, 0, self._cell_size)
 
-    #def _set_last_pressed_key_and_tick(self, key):
+    # def _set_last_pressed_key_and_tick(self, key):
         #self._last_pressed_key = key
-        #self._clock.set_last_pressed_key_frame()
+        # self._clock.set_last_pressed_key_frame()
 
     def _autorepeat(self, key, keys):
         if keys[key] and self._clock.frame_counter - self._clock.last_pressed_key_frame > 15:
             return self._clock.frame_counter - self._clock.last_autorepeat > 2
+        return False
 
     def _block_locking_check(self):
         if not self._playfield.can_move_down():
