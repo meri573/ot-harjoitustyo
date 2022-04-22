@@ -73,7 +73,7 @@ def main():
     height = len(PLAYFIELD_MAP)
     width = len(PLAYFIELD_MAP[0])
     display_height = height * CELL_SIZE
-    display_width = width * CELL_SIZE
+    display_width = width * CELL_SIZE + 6 * CELL_SIZE
     display = pygame.display.set_mode((display_width, display_height))
 
     clock = Clock()
@@ -82,13 +82,13 @@ def main():
 
     playfield = Playfield(PLAYFIELD_MAP, CELL_SIZE, PIVOT_POINT)
 
-    renderer = Renderer(display, playfield)
+    points = Points()
+
+    renderer = Renderer(display, playfield, points)
 
     playfield.all_sprites.draw(display)
 
     block_generator = BlockGenerator(playfield, BLOCKS)
-
-    points = Points()
 
     game_loop = GameLoop(playfield,
                          block_generator, renderer, clock, gravity, points)

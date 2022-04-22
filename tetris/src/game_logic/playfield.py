@@ -8,6 +8,7 @@ class Playfield:
     def __init__(self, playfield_map, cell_size, pivot_point):
         self.cell_size = cell_size
         self.width = 0
+        self.height = 0
         self.pivot_point = pivot_point
 
         self.walls = pygame.sprite.Group()
@@ -20,10 +21,10 @@ class Playfield:
         self.initialize_sprites(playfield_map)
 
     def initialize_sprites(self, playfield_map, color=(255, 255, 255)):
-        height = len(playfield_map)
+        self.height = len(playfield_map)
         self.width = len(playfield_map[0])
 
-        for y_index in range(height):
+        for y_index in range(self.height):
             for x_index in range(self.width):
                 cell = playfield_map[y_index][x_index]
                 normalized_x = x_index * self.cell_size

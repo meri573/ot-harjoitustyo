@@ -11,14 +11,12 @@ class GameLoop:
         self._gravity = gravity
         self._points = points
 
-        self._level = 0
-
     def start(self):
 
         running = True
 
         self._block_generator.create_random_block()
-        self._gravity.check_level(self._level)
+        self._gravity.check_level(self._points.level)
 
         while running:
 
@@ -29,7 +27,7 @@ class GameLoop:
             self._block_locking_check()
             if self._playfield.check_if_active_block_inside_locked_block():
                 print(f"you gained {self._points.points} points")
-                print(f"you reached level {self._level}")
+                print(f"you reached level {self._points.level}")
                 break
 
             self._renderer.render()
@@ -94,10 +92,10 @@ class GameLoop:
                 # they are then added to self._level
                 cleared_line_count = self._playfield.start_locking()
                 if bool(cleared_line_count):
-                    self._points.add_points(cleared_line_count, self._level)
+                    self._points.add_points(cleared_line_count, self._points.level)
                 for i in range(cleared_line_count):
-                    self._level += 1
-                    self._gravity.check_level(self._level)
+                    self._points.level += 1
+                    self._gravity.check_level(self._points.level)
                 self._block_creation_procedure()
         else:
             self._clock.lock_counter_reset()
@@ -111,6 +109,6 @@ class GameLoop:
 
     def _block_creation_procedure(self):
         self._block_generator.create_random_block()
-        if self._level % 100 != 99:
-            self._level += 1
-            self._gravity.check_level(self._level)
+        if self._points.level % 100 != 99:
+            self._points.level += 1
+            self._gravity.check_level(self._points.level)
