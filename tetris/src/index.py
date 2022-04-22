@@ -90,7 +90,7 @@ def main():
 
     points = Points()
 
-    game_loop = GameLoop(CELL_SIZE, playfield,
+    game_loop = GameLoop(playfield,
                          block_generator, renderer, clock, gravity, points)
 
     game_loop.start()

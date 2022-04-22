@@ -2,16 +2,14 @@ import pygame
 
 
 class GameLoop:
-    def __init__(self, cell_size, playfield, block_generator, renderer, clock, gravity, points):
-        self._cell_size = cell_size
+    def __init__(self, playfield, block_generator, renderer, clock, gravity, points):
+        self._cell_size = playfield.cell_size
         self._playfield = playfield
         self._block_generator = block_generator
         self._renderer = renderer
         self._clock = clock
         self._gravity = gravity
         self._points = points
-
-        self._last_pressed_key = None
 
         self._level = 0
 
