@@ -10,4 +10,4 @@ class Points:
         self.points += int(math.ceil((level + lines_cleared)/4)*lines_cleared)
 
     def raise_level(self, amount = 1):
-        self.level += 1
+        self.level += amount
