@@ -20,4 +20,6 @@
 |18.4   |3.5   |palikoiden pyöritys|
 |19.4   |3     |palikoiden painovoiman muuttuminen|
 |21.4   |1     |pisteiden lasku|
-|yht    |30  |  |
+|22.4   |2     |liikuntanappien pohjassapito|
+|yht    |32  |  |
+
