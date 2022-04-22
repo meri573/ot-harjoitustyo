@@ -22,5 +22,6 @@
 |21.4   |1     |pisteiden lasku|
 |22.4   |2     |liikuntanappien pohjassapito|
 |22.4   |1     |ui|
-|yht    |33  |  |
+|22.4   |0.5   |linjan poisto|
+|yht    |33.5  |  |
 
