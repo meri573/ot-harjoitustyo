@@ -20,10 +20,10 @@ class Playfield:
 
     def initialize_sprites(self, playfield_map, color=(255, 255, 255)):
         height = len(playfield_map)
-        self.width = len(playfield_map[0])
+        width = len(playfield_map[0])
 
         for y_index in range(height):
-            for x_index in range(self.width):
+            for x_index in range(width):
                 cell = playfield_map[y_index][x_index]
                 normalized_x = x_index * self.cell_size
                 normalized_y = y_index * self.cell_size
@@ -108,7 +108,9 @@ class Playfield:
                 if block_sprite.rect.y == y_coordinate:
                     sprite_list.append(block_sprite)
 
-            if len(sprite_list) == self.width - 2:
+            # for now hardcoded to remove lines with 10 or more blocks
+            # need to find a way to find playfield width
+            if len(sprite_list) >= 10:
                 lines_removed_y.append(sprite_list[0].rect.y)
                 for block_sprite in sprite_list:
                     pygame.sprite.Sprite.kill(block_sprite)
