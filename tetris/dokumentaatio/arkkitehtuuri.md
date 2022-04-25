@@ -19,9 +19,9 @@ sequenceDiagram
   participant Renderer
   participant GameLoop
   participant PlayField
-  User->>GameLoop: K_left
+  User->>GameLoop: Keydown event or pressed key
   GameLoop->>GameLoop: _event_handling()
-  GameLoop->>PlayField: move_group(active_block, -1 * cell_size, 0)
+  GameLoop->>PlayField: move_group(active_block, delta_x, delta_y)
   PlayField-->>GameLoop: None
   GameLoop->>Renderer: render()
   
