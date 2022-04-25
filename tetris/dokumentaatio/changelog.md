@@ -25,3 +25,4 @@
   - peli kirjaa komentolinjalle pelaajan saavuttaman level laskimen arvon ja pistemäärän
 - liikkumisnapin pohjassa pito saa pienen viiveen jälkeen palikan liikumaan jatkuvasti siihen suuntaan
 - piste ja level laskurit lisätty näkyviin pelissä
+- seuraavaksi esiintyvä palikka näytetään pelaajalle
