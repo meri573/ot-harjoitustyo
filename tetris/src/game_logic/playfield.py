@@ -13,6 +13,7 @@ class Playfield:
         self.empty = pygame.sprite.Group()
         self.active_block = pygame.sprite.Group()
         self.locked_blocks = pygame.sprite.Group()
+        self.next_block = pygame.sprite.Group()
 
         self.all_sprites = pygame.sprite.Group()
 
@@ -37,12 +38,16 @@ class Playfield:
                 elif cell == 2:
                     self.active_block.add(
                         Block(normalized_x, normalized_y, self.cell_size, color, self.pivot_point))
+                elif cell == 3:
+                    self.next_block.add(
+                        Block(normalized_x, normalized_y, self.cell_size, color, self.pivot_point))
 
         self.all_sprites.add(
             self.walls,
             self.empty,
             self.active_block,
-            self.locked_blocks
+            self.locked_blocks,
+            self.next_block
         )
 
     def _can_move(self, block_sprite, delta_x=0, delta_y=0):

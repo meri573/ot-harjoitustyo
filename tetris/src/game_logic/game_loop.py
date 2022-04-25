@@ -15,7 +15,8 @@ class GameLoop:
 
         running = True
 
-        self._block_generator.create_random_block()
+        self._block_generator.create_block()
+        self._block_generator.create_block()
         self._gravity.check_level(self._points.level)
 
         while running:
@@ -109,7 +110,7 @@ class GameLoop:
                 self._clock.gravity_counter -= 256
 
     def _block_creation_procedure(self):
-        self._block_generator.create_random_block()
+        self._block_generator.create_block()
         if self._points.level % 100 != 99:
             self._points.level += 1
             self._gravity.check_level(self._points.level)
