@@ -52,6 +52,7 @@ pylint kooditarkastus
 ```bash
 poetry run invoke pylint
 ```
-
+## release 1
+[linkki](https://github.com/meri573/ot-harjoitustyo/releases/tag/viikko5)
 
 :)
