@@ -9,6 +9,9 @@ Palikat liikkuvat automaattisesti kohti pelialueen pohjaa ja mitä pidempään p
   - level laskurin kasvaessa palikoiden putoamisnopeus kasvaa
      - level laskuri kasvaa aina kun uusi palikka luodaan tai linja poistetaan
        - kun level % 100 == 99 vain rivin poisto kasvattaa level laskuria
+### Palikan liikuttaminen
+- nuolinäppäimillä liikutetaan palikkaa vasemmalle, oikealle, ja alas
+- s ja d pyörittävät palikkaa
 
 ## Dokumentaatio
  
