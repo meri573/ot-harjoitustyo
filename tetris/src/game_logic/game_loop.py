@@ -93,7 +93,7 @@ class GameLoop:
                 # they are then added to self._level
                 cleared_line_count = self._playfield.start_locking()
                 if bool(cleared_line_count):
-                    self._points.add_points(
+                    self._points.add_score(
                         cleared_line_count, self._points.level)
                 for i in range(cleared_line_count):
                     self._points.level += 1

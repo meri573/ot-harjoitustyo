@@ -14,7 +14,7 @@ class Renderer:
         self._playfield.all_sprites.draw(self._display)
 
         points = self._font.render(
-            f"points: {self._points.points}", True, (240, 240, 240))
+            f"points: {self._points.score}", True, (240, 240, 240))
         level = self._font.render(
             f"level: {self._points.level}", True, (240, 240, 240))
 
