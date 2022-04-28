@@ -24,5 +24,6 @@
 |22.4   |1     |ui|
 |22.4   |0.5   |linjan poisto|
 |25.4   |2     |seuraava palikka preview|
-|yht    |33.5  |  |
+|28.4   |2.5   |testejä|
+|yht    |36    |  |
 
