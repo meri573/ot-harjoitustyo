@@ -11,4 +11,5 @@ class TestScoreRepository(unittest.TestCase):
         score_repository.save_score("test_user1", 123)
         score_repository.save_score("test_user2", 231)
         scores = score_repository.find_scores_desc()
-        self.assertEqual()
+        self.assertEqual(scores[0], ("test_user1", 123))
+        self.assertEqual(scores[1], ("test_user2", 231))

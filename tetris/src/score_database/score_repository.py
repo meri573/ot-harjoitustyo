@@ -1,3 +1,6 @@
+from score_database.database_connection import get_database_connection
+
+
 class ScoreRepository:
 
     def __init__(self, connection):
@@ -15,7 +18,7 @@ class ScoreRepository:
         return cursor.fetchall()
 
     def save_score(self, username, score):
-        cursor = self._connection.cursor
+        cursor = self._connection.cursor()
 
         cursor.execute(
             "insert into scores (username, score) values (?,?)",
@@ -26,7 +29,7 @@ class ScoreRepository:
 
     def delete_all(self):
         
-        cursor = self._conneciton.cursor()
+        cursor = self._connection.cursor()
 
         cursor.execute("delete from scores")
 
