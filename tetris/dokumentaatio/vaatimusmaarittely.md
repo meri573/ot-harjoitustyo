@@ -25,8 +25,8 @@ Sovellus on tetristä muistuttava palikoiden kasaamispeli.
         - [x] mitä enemmän rivejä katoaa kerralla sitä enemmän pisteitä pelaaja saa
    
    
-  - [ ] Pelin jälkeen käyttäjä voi tallentaa saavutetun pistemäärän ja pelin keston omalla nimimerkillään
-- [ ] Käyttäjä pystyy tarkastelemaan huipputuloksia
+  - [x] Pelin jälkeen käyttäjä voi tallentaa saavutetun pistemäärän omalla nimimerkillään
+- [x] Käyttäjä pystyy tarkastelemaan huipputuloksia
 
 ## Jatkokehitysideoita
 Muutama esimerkki mahdollisista lisäyksistä/parannuksista perusversioon ajan salliessa:
