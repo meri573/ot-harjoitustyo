@@ -1,5 +1,7 @@
 import pygame
 
+from score_database.score_repository import score_repository
+
 
 class GameLoop:
     def __init__(self, playfield, block_generator, renderer, clock, gravity, points):
@@ -27,14 +29,28 @@ class GameLoop:
 
             self._block_locking_check()
             if self._playfield.check_if_active_block_inside_locked_block():
-                print(f"you gained {self._points.points} points")
-                print(f"you reached level {self._points.level}")
+                
                 break
 
             self._renderer.render()
 
             self._clock.gravity_tick(self._gravity.gravity_step)
             self._clock.tick_tock(60)
+
+        self.score_screen()
+
+    # temporary score screen and score submission implementation
+    def score_screen(self):
+        scores = score_repository.find_scores_desc()
+        print("High scores:")
+        for score in scores:
+            print(score)
+
+        print(f"you gained {self._points.score} points")
+        print(f"you reached level {self._points.level}")
+        print("Enter username to save score:")
+        username = input()
+        score_repository.save_score(username, self._points.score)
 
     def _event_handling(self):
         self._handle_keydowns()
