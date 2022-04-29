@@ -25,5 +25,6 @@
 |22.4   |0.5   |linjan poisto|
 |25.4   |2     |seuraava palikka preview|
 |28.4   |2.5   |testejä|
+|29.4   |2     |score saving|
 |yht    |36    |  |
 
