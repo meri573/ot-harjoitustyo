@@ -2,6 +2,7 @@ import unittest
 
 from game_logic.clock import Clock
 
+
 class TestClock(unittest.TestCase):
     def setUp(self):
         self.clock = Clock()
@@ -31,4 +32,4 @@ class TestClock(unittest.TestCase):
     def test_set_last_autorepeat(self):
         self.clock.tick_tock(0)
         self.clock.set_last_autorepeat()
-        self.assertEqual(self.clock.last_autorepeat , 1)
+        self.assertEqual(self.clock.last_autorepeat, 1)

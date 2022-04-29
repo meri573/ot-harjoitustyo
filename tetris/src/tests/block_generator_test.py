@@ -3,7 +3,8 @@ import pygame
 
 from game_logic.block_generator import BlockGenerator
 
-blocks = [[1,2]]
+blocks = [[1, 2]]
+
 
 class StubPlayfield:
     def __init__(self):
@@ -20,9 +21,10 @@ class StubPlayfield:
     def move_block(self, block_sprite, delta_x, delta_y):
         block_sprite.rect.move_ip(delta_x, delta_y)
 
-    def initialize_sprites(self,one,two):
+    def initialize_sprites(self, one, two):
         if one == 1 and two == 2:
             self.next_block.add(StubBlock())
+
 
 class StubBlock(pygame.sprite.Sprite):
     def __init__(self):
@@ -33,6 +35,7 @@ class StubBlock(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 0
         self.rect.y = 0
+
 
 class TestBlockGenerator(unittest.TestCase):
     def setUp(self):
@@ -46,8 +49,10 @@ class TestBlockGenerator(unittest.TestCase):
         self.block_generator._playfield.next_block.add(StubBlock())
         self.block_generator._move_to_spawnpoint()
         for block_sprite in self.block_generator._playfield.next_block:
-            self.assertEqual(block_sprite.rect.x, -self.block_generator.delta_x)
-            self.assertEqual(block_sprite.rect.y, -self.block_generator.delta_y)
+            self.assertEqual(block_sprite.rect.x, -
+                             self.block_generator.delta_x)
+            self.assertEqual(block_sprite.rect.y, -
+                             self.block_generator.delta_y)
 
     def test_move_from_next_block_to_active(self):
         self.block_generator._playfield.next_block.add(StubBlock())

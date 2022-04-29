@@ -2,6 +2,7 @@ import unittest
 
 from game_logic.points import Points
 
+
 class TestPoints(unittest.TestCase):
     def setUp(self):
         self.points = Points()
@@ -11,7 +12,7 @@ class TestPoints(unittest.TestCase):
         self.assertEqual(self.points.level, 1)
 
     def test_point_counter_rounding(self):
-        #self.points.raise_level(2)
+        # self.points.raise_level(2)
         self.points.add_score(1, 1)
         print(self.points.level)
         self.assertEqual(self.points.score, 1)
