@@ -28,11 +28,12 @@ class ScoreRepository:
         self._connection.commit()
 
     def delete_all(self):
-        
+
         cursor = self._connection.cursor()
 
         cursor.execute("delete from scores")
 
         self._connection.commit()
+
 
 score_repository = ScoreRepository(get_database_connection())
