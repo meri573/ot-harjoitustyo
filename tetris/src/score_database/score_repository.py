@@ -1,12 +1,9 @@
-import database_connection
-
-
 class ScoreRepository:
 
     def __init__(self, connection):
         self._connection = connection
 
-    def find_all_desc(self, sorted_by="score", limit=10):
+    def find_scores_desc(self, sorted_by="score", limit=10):
 
         cursor = self._connection.cursor()
 
@@ -26,3 +23,13 @@ class ScoreRepository:
         )
 
         self._connection.commit()
+
+    def delete_all(self):
+        
+        cursor = self._conneciton.cursor()
+
+        cursor.execute("delete from scores")
+
+        self._connection.commit()
+
+score_repository = ScoreRepository(get_database_connection())

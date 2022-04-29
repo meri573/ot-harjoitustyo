@@ -1,4 +1,4 @@
-import database_connection
+from score_database.database_connection import get_database_connection
 
 
 def drop_tables(connection):
@@ -10,7 +10,7 @@ def drop_tables(connection):
                    )
 
 
-def create_tables(connetion):
+def create_tables(connection):
 
     cursor = connection.cursor()
 
@@ -26,4 +26,7 @@ def create_tables(connetion):
 
 def initialize_database():
 
-    connection = database_connection.get_database_connection()
+    connection = get_database_connection()
+
+    drop_tables(connection)
+    create_tables(connection)
