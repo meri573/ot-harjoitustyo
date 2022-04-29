@@ -8,6 +8,7 @@
 - pelin alkaessa pelialueelle luodann yksi pelaajan liikuteltavissa oleva palikka 
   - palikkaa liikutetaan näppäimistön nuolinäppäimillä
 - palikan generaatiota testattu
+
 ## viikko 5
 - palikka lukkiutuu puolen sekunnin jälkeen jos se ei pysty liikkumaan alaspäin
   - lukkiutumisen jälkeen uusi palikka generoidaan
@@ -26,3 +27,8 @@
 - liikkumisnapin pohjassa pito saa pienen viiveen jälkeen palikan liikumaan jatkuvasti siihen suuntaan
 - piste ja level laskurit lisätty näkyviin pelissä
 - seuraavaksi esiintyvä palikka näytetään pelaajalle
+
+## viikko 6
+- pelin jälkeen pelaaja voi tallentaa pelin tuloksensa nimimerkillään
+- pelin jälkeen pelaajalle myös esitetään kaikkien pelaajien 10 parasta tulosta
+  - tällä hetkellä tuloksen tallennuksella ja huipputulosten katselulla ei ole kunnollista ui:ta ja toimivat terminaalin kautta
