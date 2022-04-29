@@ -29,7 +29,13 @@ Palikat liikkuvat automaattisesti kohti pelialueen pohjaa ja mitä pidempään p
 ```bash
 poetry install
 ```
-2. peli käynnistyy komennolla
+2. tietokannan saa alustettua komennolla 
+
+```bash
+poetry run invoke build
+```
+
+3. peli käynnistyy komennolla
 
 ```bash
 poetry run invoke start
@@ -52,6 +58,11 @@ pylint kooditarkastus
 ```bash
 poetry run invoke pylint
 ```
+koodin automaattinen formatointi
+```bash
+poetry run invoke format
+```
+
 ## release 1
 [linkki](https://github.com/meri573/ot-harjoitustyo/releases/tag/viikko5)
 
