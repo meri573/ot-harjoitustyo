@@ -26,5 +26,6 @@
 |25.4   |2     |seuraava palikka preview|
 |28.4   |2.5   |testejä|
 |29.4   |3     |score saving|
-|yht    |39    |  |
+|2.5    |2     |docstrings|
+|yht    |41    |  |
 
