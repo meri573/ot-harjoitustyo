@@ -189,6 +189,13 @@ class Playfield:
         return True
 
     def check_if_active_block_inside_locked_block(self):
+        """Tarkistaa törmääkö mikään active_block sprite groupin sprite minkään locked_block sprite
+        groupin spriten kanssa.
+
+        Returns:
+            Palauttaa Booleanin joka kertoo onko mikään active_block sprite minkään locked_block 
+            spriten sisällä
+        """
         for sprite_block in self.active_block:
             if pygame.sprite.spritecollideany(sprite_block, self.locked_blocks) is not None:
                 return True

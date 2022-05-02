@@ -1,4 +1,7 @@
 class Gravity:
+    """Palikan painovoimasta huolehtiva luokka.
+    """
+
     def __init__(self, gravity_list, level_set):
         self._gravity_list = gravity_list
         self._level_set = level_set

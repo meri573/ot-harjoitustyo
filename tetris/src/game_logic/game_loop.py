@@ -4,6 +4,9 @@ from score_database.score_repository import score_repository
 
 
 class GameLoop:
+    """Pelisilmukasta vastaava luokka.
+    """
+
     def __init__(self, playfield, block_generator, renderer, clock, gravity, points):
         self._cell_size = playfield.cell_size
         self._playfield = playfield
@@ -53,10 +56,15 @@ class GameLoop:
         score_repository.save_score(username, self._points.score)
 
     def _event_handling(self):
+        """Hoitaa näppäinten painallukset.
+        """
         self._handle_keydowns()
         self._handle_pressed_keys()
 
     def _handle_keydowns(self):
+        """Liikuttaa palikkaa halutulla tavalla tiettyjä näppäimiä painaessa.
+        Viimeksi painettu nappi pistetään talteen.
+        """
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
@@ -78,6 +86,8 @@ class GameLoop:
                     self._playfield.rotate_active_block(90)
 
     def _handle_pressed_keys(self):
+        """Jos näppäintä on pidetty pohjassa tarpeeksi pitkään sen aktivoima liike toistetaan.
+        """
         keys = pygame.key.get_pressed()
         if self._autorepeat(pygame.K_LEFT, keys):
             self._playfield.move_group(
@@ -96,6 +106,20 @@ class GameLoop:
         # self._clock.set_last_pressed_key_frame()
 
     def _autorepeat(self, key, keys):
+        """Tarkistaa onko viimeistä liikenappia pidetty pohjassa tarpeeksi kauan, että liike
+        toistettaisiin.
+
+        Ensin tarkistetaan, että viimeksi painettu näppäin on yhä painettu pohjaan ja sitä on 
+        painettu tarpeeksi pitkään pohjaan. Tämän jälkeen tarkistetaan onko viimeisestä toistetusta
+        liikkeestä kulunut tarpeeksi kauan että liike voitaisiin toistaa uudelleen. 
+
+        Args:
+            key: Näppäin jonka haluamme tarkistaa onko se tällä hetkellä pohjaan painettu.
+            keys: Kaikki tällä hetkellä pohjaan painetut näppäimet.
+
+        Returns:
+            Palauttaa Booleanin joka kertoo täyttyykö kaikki vaaditut ehdot.
+        """
         if keys[key] and self._clock.frame_counter - self._clock.last_pressed_key_frame > 15:
             return self._clock.frame_counter - self._clock.last_autorepeat > 2
         return False
