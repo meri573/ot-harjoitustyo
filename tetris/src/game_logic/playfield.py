@@ -5,6 +5,8 @@ from sprites.block import Block
 
 
 class Playfield:
+    """Pelialueesta vastaava luokka"""
+
     def __init__(self, playfield_map, cell_size, pivot_point):
         self.cell_size = cell_size
         self.pivot_point = pivot_point
@@ -51,6 +53,19 @@ class Playfield:
         )
 
     def _can_move(self, block_sprite, delta_x=0, delta_y=0):
+        """Tarkastaa voiko palikka liikkua haluttuun kohtaan.
+
+        Liikuttaa palikan haluttuun kohtaan, jonka jälkeen tarkistaa onko palikka minkään
+        seinään tai lukitun palikan sisällä. Tämän jälkeen palikka liikutetaan alkukohtaan.
+
+        Args:
+            block_sprite: Palikan sprite jota halutaan liikuttaa 
+            delta_x: Palikan x-koordinaatin muutos.
+            delta_y: Palikan y-koordinaatin muutos.
+
+        Returns:
+            Palauttaa Booleanin, joka kertoo voiko palikka liikkua.
+        """
         block_sprite.rect.move_ip(delta_x, delta_y)
 
         colliding_walls = pygame.sprite.spritecollide(
@@ -64,6 +79,19 @@ class Playfield:
         return can_move
 
     def _group_can_move(self, group, delta_x=0, delta_y=0):
+        """Tarkastaa voiko sprite group liikkua haluttuun kohtaan.
+
+        Käy sprite groupin läpi ja varmistaa _can_move():lla voiko jokainen palikka liikkua
+        haluttuun kohtaan
+
+        Args:
+            group: pygame.sprite.Group jota halutaan liikuttaa
+            delta_x: Palikan x-koordinaatin muutos.
+            delta_y: Palikan y-koordinaatin muutos.
+
+        Returns:
+            Palauttaa Booleanin, joka kertoo voiko kaikki sprite groupin kaikki palikat liikkua.
+        """
         for block_sprite in group:
             if self._can_move(block_sprite, delta_x, delta_y) is False:
                 return False
@@ -79,6 +107,7 @@ class Playfield:
                 self.move_block(block_sprite, delta_x, delta_y)
 
     def move_active_block_to_locked(self):
+        """siirtää active_block sprite groupin kaikki spritet locked_blocks sprite grouppiin."""
         self.locked_blocks.add(self.active_block)
         self.active_block.remove(self.active_block)
 
