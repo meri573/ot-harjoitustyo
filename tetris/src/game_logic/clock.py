@@ -2,6 +2,9 @@ import pygame
 
 
 class Clock:
+    """Ajoituksista huolehtiva luokka.
+    """
+
     def __init__(self):
         self._clock = pygame.time.Clock()
         self.frame_counter = 0
@@ -11,6 +14,11 @@ class Clock:
         self.last_autorepeat = 0
 
     def tick_tock(self, fps):
+        """Rajoittaa fps:n ja kasvattaa frame_counteria yhdellä
+
+        Args:
+            fps: Kuinka monta kertaa peli halutaan piirtää sekuntissa
+        """
         self._clock.tick(fps)
         self.frame_counter += 1
 
@@ -24,7 +32,11 @@ class Clock:
         self.lock_counter = 0
 
     def set_last_pressed_key_frame(self):
+        """Tallentaa millä framella viimeksi painettiin liikuntanappia.
+        """
         self.last_pressed_key_frame = self.frame_counter
 
     def set_last_autorepeat(self):
+        """Tallentaa millä framella viimeksi autorepeat aktivoitui.
+        """
         self.last_autorepeat = self.frame_counter

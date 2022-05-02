@@ -5,7 +5,8 @@ from sprites.block import Block
 
 
 class Playfield:
-    """Pelialueesta vastaava luokka"""
+    """Pelialueesta vastaava luokka
+    """
 
     def __init__(self, playfield_map, cell_size, pivot_point):
         self.cell_size = cell_size
@@ -107,7 +108,7 @@ class Playfield:
                 self.move_block(block_sprite, delta_x, delta_y)
 
     def move_active_block_to_locked(self):
-        """siirtää active_block sprite groupin kaikki spritet locked_blocks sprite grouppiin."""
+        """Siirtää active_block sprite groupin kaikki spritet locked_blocks sprite grouppiin."""
         self.locked_blocks.add(self.active_block)
         self.active_block.remove(self.active_block)
 
@@ -126,6 +127,11 @@ class Playfield:
         return len(lines_removed_y)
 
     def _get_active_block_y_coordinates(self):
+        """Hakee active_block sprite groupin jokaisen eri y-koordinaatin.
+
+        Returns:
+            Palauttaa setin jossa on kaikki active_block sprite groupin y-koordinaatit.  
+        """
         block_y_coordinates = []
         for block_sprite in pygame.sprite.Group.sprites(self.active_block):
             block_y_coordinates.append(block_sprite.rect.y)
