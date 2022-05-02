@@ -29,7 +29,7 @@ class GameLoop:
 
             self._block_locking_check()
             if self._playfield.check_if_active_block_inside_locked_block():
-                
+
                 break
 
             self._renderer.render()
