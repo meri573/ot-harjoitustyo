@@ -1,3 +1,13 @@
+# Arkkitehtuurikuvaus
+## Rakenne 
+![](/dokumentaatio/kuvat/pakkausrakenne.png)
+
+_ui_ sisältää käyttöliittymästä, _game_logic_ sovelluslogiikasta ja _score_database_ tietojen pysyväistallennuksesta vastaavan koodin. Pakkaus _sprites_ sisältää luokkia, jotka kuvastavat sovelluksen käyttämiä spritejä.
+
+## Käyttöliittymä
+
+
+
 ## Luokkakaavio?
 ```mermaid
 classDiagram
@@ -8,6 +18,12 @@ classDiagram
 ```
 Playfield huolehtii pelialueesta ja pelialueella sijaitsevista palikoista.
 
+## Tietojen pysyväistallennus
+Pakkauksen _score_database_ luokka `ScoreRepository` huolehtii tietojen tallettamisesta
+
+Pelaajan tulokset tallennetaan SQLite-tietokannan `scores` tauluun.
+
+scores tauluun tallennetaan pelaajan saavuttama pistemäärä ja syöttämä nimimerkki.
 
 ## Päätoiminnallisuudet
 Joitain ohjelman päätoiminnallisuuden sekvenssiokaavioita
