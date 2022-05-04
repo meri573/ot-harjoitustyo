@@ -27,16 +27,14 @@ class Renderer:
 
         pygame.display.update()
 
-
     def _name_submission(self, name):
         instruction = self._font.render(f"enter name", True, (50, 50, 50))
-        self._display.blit(self._text_background(instruction, (150,150,150)),(self._display.get_width(
-            )/4, 16 * self._playfield.cell_size))
+        self._display.blit(self._text_background(instruction, (150, 150, 150)), (self._display.get_width(
+        )/4, 16 * self._playfield.cell_size))
 
-        current_name = self._font.render(" ".join(name), True, (50,50,50))
-        self._display.blit(self._text_background(current_name,(150,150,150)),(self._display.get_width(
-            )/4, 18 * self._playfield.cell_size))
-
+        current_name = self._font.render(" ".join(name), True, (50, 50, 50))
+        self._display.blit(self._text_background(current_name, (150, 150, 150)), (self._display.get_width(
+        )/4, 18 * self._playfield.cell_size))
 
     def _score_and_level_text(self):
         points = self._font.render(

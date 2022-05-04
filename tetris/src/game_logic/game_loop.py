@@ -57,12 +57,11 @@ class GameLoop:
 
         while inputting:
             char = self._handle_keydowns_score_screen()
-            
 
-            if char == pygame.K_RETURN: #and i <= 3:
+            if char == pygame.K_RETURN:  # and i <= 3:
                 score_repository.save_score("".join(name), self._points.score)
                 break
-            
+
             elif char == pygame.K_BACKSPACE:
                 print(char)
                 name[i] = "_"
@@ -72,7 +71,7 @@ class GameLoop:
             elif type(char) == str:
                 if char.isalpha():
                     name[i] = char
-                    
+
                     if i < 2:
                         i += 1
 
