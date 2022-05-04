@@ -1,5 +1,4 @@
 import pygame
-from sprites.empty import Empty
 from sprites.wall import Wall
 from sprites.block import Block
 
@@ -34,10 +33,10 @@ class Playfield:
 
                 if cell == 0:
                     self.empty.add(
-                        Empty(normalized_x, normalized_y, self.cell_size))
+                        Wall(normalized_x, normalized_y, self.cell_size, (200, 200, 200)))
                 elif cell == 1:
                     self.walls.add(
-                        Wall(normalized_x, normalized_y, self.cell_size))
+                        Wall(normalized_x, normalized_y, self.cell_size, (100, 100, 100)))
                 elif cell == 2:
                     self.active_block.add(
                         Block(normalized_x, normalized_y, self.cell_size, color, self.pivot_point))

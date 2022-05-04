@@ -13,6 +13,11 @@ class Renderer:
 
         self._playfield.all_sprites.draw(self._display)
 
+        self._score_and_level_text()
+
+        pygame.display.update()
+
+    def _score_and_level_text(self):
         points = self._font.render(
             f"points: {self._points.score}", True, (240, 240, 240))
         level = self._font.render(
@@ -22,4 +27,3 @@ class Renderer:
         ) - 5 * self._playfield.cell_size, self._display.get_height() - 2 * self._playfield.cell_size))
         self._display.blit(level, (self._display.get_width(
         ) - 5 * self._playfield.cell_size, self._display.get_height() - 1 * self._playfield.cell_size))
-        pygame.display.flip()
