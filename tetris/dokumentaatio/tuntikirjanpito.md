@@ -27,5 +27,6 @@
 |28.4   |2.5   |testejä|
 |29.4   |3     |score saving|
 |2.5    |2     |docstrings|
+|4.5    |4     |score saving|
 |yht    |41    |  |
 
