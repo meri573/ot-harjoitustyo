@@ -52,8 +52,6 @@ class GameLoop:
 
         self._renderer.render_scoreboard(scores)
 
-        self._renderer.render_name_submission(name)
-
         while inputting:
             char = self._handle_keydowns_score_screen()
 
@@ -62,17 +60,15 @@ class GameLoop:
                 inputting = False
 
             elif char == pygame.K_BACKSPACE:
-                print(char)
                 name[i] = "_"
                 if i < 0:
                     i -= 1
 
-            elif type(char) == str:
-                if char.isalpha():
-                    name[i] = char
+            elif isinstance(char, str):
+                name[i] = char
 
-                    if i < 2:
-                        i += 1
+                if i < 2:
+                    i += 1
 
             self._renderer.render_name_submission(name)
             self._clock.tick_tock(60)
