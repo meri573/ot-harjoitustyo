@@ -109,9 +109,9 @@ class GameLoop:
         """Tarkistaa onko viimeistä liikenappia pidetty pohjassa tarpeeksi kauan, että liike
         toistettaisiin.
 
-        Ensin tarkistetaan, että viimeksi painettu näppäin on yhä painettu pohjaan ja sitä on 
+        Ensin tarkistetaan, että viimeksi painettu näppäin on yhä painettu pohjaan ja sitä on
         painettu tarpeeksi pitkään pohjaan. Tämän jälkeen tarkistetaan onko viimeisestä toistetusta
-        liikkeestä kulunut tarpeeksi kauan että liike voitaisiin toistaa uudelleen. 
+        liikkeestä kulunut tarpeeksi kauan että liike voitaisiin toistaa uudelleen.
 
         Args:
             key: Näppäin jonka haluamme tarkistaa onko se tällä hetkellä pohjaan painettu.

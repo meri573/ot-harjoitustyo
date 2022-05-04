@@ -59,7 +59,7 @@ class Playfield:
         seinään tai lukitun palikan sisällä. Tämän jälkeen palikka liikutetaan alkukohtaan.
 
         Args:
-            block_sprite: Palikan sprite jota halutaan liikuttaa 
+            block_sprite: Palikan sprite jota halutaan liikuttaa
             delta_x: Palikan x-koordinaatin muutos.
             delta_y: Palikan y-koordinaatin muutos.
 
@@ -129,7 +129,7 @@ class Playfield:
         """Hakee active_block sprite groupin jokaisen eri y-koordinaatin.
 
         Returns:
-            Palauttaa setin jossa on kaikki active_block sprite groupin y-koordinaatit.  
+            Palauttaa setin jossa on kaikki active_block sprite groupin y-koordinaatit.
         """
         block_y_coordinates = []
         for block_sprite in pygame.sprite.Group.sprites(self.active_block):
@@ -192,7 +192,7 @@ class Playfield:
         groupin spriten kanssa.
 
         Returns:
-            Palauttaa Booleanin joka kertoo onko mikään active_block sprite minkään locked_block 
+            Palauttaa Booleanin joka kertoo onko mikään active_block sprite minkään locked_block
             spriten sisällä
         """
         for sprite_block in self.active_block:
