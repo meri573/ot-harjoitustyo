@@ -32,3 +32,6 @@
 - pelin jälkeen pelaaja voi tallentaa pelin tuloksensa nimimerkillään
 - pelin jälkeen pelaajalle myös esitetään kaikkien pelaajien 10 parasta tulosta
   - tällä hetkellä tuloksen tallennuksella ja huipputulosten katselulla ei ole kunnollista ui:ta ja toimivat terminaalin kautta
+
+## viikko 7
+- scoreboard ui ja tulosten tallennus ui implementoitu
