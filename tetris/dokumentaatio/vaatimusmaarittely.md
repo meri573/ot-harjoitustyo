@@ -4,7 +4,7 @@
 Sovellus on tetristä muistuttava palikoiden kasaamispeli.
 
 ## Perusversion tarjoama toiminnallisuus
-- [ ] Käyttäjä voi pelata pelin tetristä
+- [x] Käyttäjä voi pelata pelin tetristä
   - [x] pelialue on 10 neliötä leveä ja 20 neliötä korkea
   
   - [x] pelialueen ylärajaan ilmestyy neljän neliön kokoisia palikoita joita pelaaja voi liikuttaa
