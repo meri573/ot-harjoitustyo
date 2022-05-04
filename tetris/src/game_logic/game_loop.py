@@ -45,15 +45,52 @@ class GameLoop:
     # temporary score screen and score submission implementation
     def score_screen(self):
         scores = score_repository.find_scores_desc()
-        print("High scores:")
-        for score in scores:
-            print(score)
 
-        print(f"you gained {self._points.score} points")
-        print(f"you reached level {self._points.level}")
-        print("Enter username to save score:")
-        username = input()
-        score_repository.save_score(username, self._points.score)
+        name = ["_", "_", "_"]
+        i = 0
+
+        inputting = True
+
+        self._renderer.render_scoreboard(scores)
+
+        self._renderer.render_name_submission(name)
+
+        while inputting:
+            char = self._handle_keydowns_score_screen()
+            
+
+            if char == pygame.K_RETURN: #and i <= 3:
+                score_repository.save_score("".join(name), self._points.score)
+                break
+            
+            elif char == pygame.K_BACKSPACE:
+                print(char)
+                name[i] = "_"
+                if i < 0:
+                    i -= 1
+
+            elif type(char) == str:
+                if char.isalpha():
+                    name[i] = char
+                    
+                    if i < 2:
+                        i += 1
+
+            self._renderer.render_name_submission(name)
+            self._clock.tick_tock(60)
+
+    def _handle_keydowns_score_screen(self):
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_BACKSPACE:
+                    return pygame.K_BACKSPACE
+
+                if event.key == pygame.K_RETURN:
+                    return pygame.K_RETURN
+
+                if event.unicode.isalpha():
+                    return event.unicode
+        return None
 
     def _event_handling(self):
         """Hoitaa näppäinten painallukset.
