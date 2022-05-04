@@ -42,7 +42,6 @@ class GameLoop:
 
         self.score_screen()
 
-    # temporary score screen and score submission implementation
     def score_screen(self):
         scores = score_repository.find_scores_desc()
 
@@ -58,9 +57,9 @@ class GameLoop:
         while inputting:
             char = self._handle_keydowns_score_screen()
 
-            if char == pygame.K_RETURN:  # and i <= 3:
+            if char == pygame.K_RETURN:
                 score_repository.save_score("".join(name), self._points.score)
-                break
+                inputting = False
 
             elif char == pygame.K_BACKSPACE:
                 print(char)
