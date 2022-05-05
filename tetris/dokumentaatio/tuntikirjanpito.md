@@ -28,5 +28,6 @@
 |29.4   |3     |score saving|
 |2.5    |2     |docstrings|
 |4.5    |4     |score saving|
+|5.5    |2     |.env ja testit|
 |yht    |48    |  |
 
