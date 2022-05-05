@@ -6,13 +6,12 @@ class ScoreRepository:
     def __init__(self, connection):
         self._connection = connection
 
-    def find_scores_desc(self, sorted_by="score", limit=10):
+    def find_scores_desc(self):
 
         cursor = self._connection.cursor()
 
         cursor.execute(
-            "select * from scores order by (?) desc limit (?)",
-            (sorted_by, limit)
+            "select * from scores order by score desc limit 10"
         )
 
         return cursor.fetchall()
