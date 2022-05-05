@@ -28,5 +28,5 @@
 |29.4   |3     |score saving|
 |2.5    |2     |docstrings|
 |4.5    |4     |score saving|
-|yht    |41    |  |
+|yht    |48    |  |
 
