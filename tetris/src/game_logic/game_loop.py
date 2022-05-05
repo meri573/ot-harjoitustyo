@@ -61,7 +61,7 @@ class GameLoop:
 
             elif char == pygame.K_BACKSPACE:
                 name[i] = "_"
-                if i < 0:
+                if i > 0:
                     i -= 1
 
             elif isinstance(char, str):
