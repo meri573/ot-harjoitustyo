@@ -204,7 +204,6 @@ class Playfield:
                         self.move_block(block_sprite, 0, 1 * self.cell_size)
 
     def rotate_active_block(self, deg):
-
         if self._can_rotate(self.active_block, deg):
             for block_sprite in self.active_block:
                 rotated_vector = block_sprite.offset_vector.rotate(deg)

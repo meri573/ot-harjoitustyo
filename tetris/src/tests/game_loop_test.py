@@ -3,6 +3,8 @@ import pygame
 
 from game_logic.game_loop import GameLoop
 
+pygame.init()
+
 
 class StubPlayfield:
     def __init__(self):
@@ -32,6 +34,9 @@ class StubRenderer:
 class StubClock:
     def __init__(self):
         self.gravity_counter = 0
+        self.last_pressed_key_frame = 0
+        self.last_autorepeat = 0
+        self.frame_counter = 0
 
 
 class StubGravity:
@@ -79,3 +84,15 @@ class TestGameLoop(unittest.TestCase):
         self.assertEqual(self.game_loop._block_generator.counter, 2)
         self.assertEqual(self.game_loop._points.level, 99)
         self.assertEqual(self.game_loop._gravity.counter, 1)
+
+    def test_autorepeat(self):
+        key = "K_DOWN"
+
+        keys = {"K_DOWN": True}
+
+        self.assertEqual(self.game_loop._autorepeat(key, keys), False)
+
+        self.game_loop._clock.frame_counter = 16
+        self.last_autorepeat = 3
+
+        self.assertEqual(self.game_loop._autorepeat(key, keys), True)
