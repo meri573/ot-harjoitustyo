@@ -22,6 +22,17 @@ class Playfield:
         self.initialize_sprites(playfield_map)
 
     def initialize_sprites(self, playfield_map, color=(255, 255, 255)):
+        """Luo halutun spriten ja lisää sen haluttuun sprite grouppiin.
+
+        Käydään matriisi läpi. Matriisin indexi määrittää luodun spriten koordinaatit ja
+        matriisin indekistä löytyvä numero määrää mihin sprite grouppiin sprite lisätään.
+
+
+        Args:
+            playfield_map: Matriisi, joka määrittää minkälainen sprite halutaan luoda
+            mihinkin koordinaattiin.
+            color: Joillekkin spriteille voidaan antaa vapaavalintainen väri.
+        """
         height = len(playfield_map)
         width = len(playfield_map[0])
 
@@ -102,6 +113,14 @@ class Playfield:
         block_sprite.rect.move_ip(delta_x, delta_y)
 
     def move_group(self, group, delta_x=0, delta_y=0):
+        """tarkistaa voiko jokainen sprite groupissa liikkua halutun määrän. Jos pystyy
+        käy sprite groupin läpi ja liikuttaa jokaista spriteä halutun määrän.
+
+        Args:
+            group: Sprite group jota halutaan liikuttaa.
+            delta_x: Haluttu x:n muutos.
+            delta_y: Haluttu y:n muutos.
+        """
         if self._group_can_move(group, delta_x, delta_y):
             for block_sprite in group:
                 self.move_block(block_sprite, delta_x, delta_y)
@@ -139,6 +158,17 @@ class Playfield:
     # (probably) bad code alert !!!
 
     def _remove_full_lines(self, coordinates):
+        """Etsii täydet rivit ja poistaa ne.
+
+        Käy yksitellen läpi jokaisen rivin jolla on lukittoja palikoita ja laskee kuinka monta
+        niitä on rivillä. Jos rivi on täynnä poistetaan sillä rivillä olevat lukitut palikat.
+
+        Args:
+            coordinates: Kaikki rivit joilla on lukittuja palikoita.
+
+        Returns:
+            list: Lista johon on kirjattu täysien rivien y-koordinaatit.
+        """
         lines_removed_y = []
 
         for y_coordinate in coordinates:
@@ -156,6 +186,11 @@ class Playfield:
         return lines_removed_y
 
     def _move_remaining_lines_down(self, lines_removed_y):
+        """Siirtää jäljelle jääneitä rivejä alas tarvitun määrän.
+
+        Args:
+            lines_removed_y: Lista joka sisältää poistettujen rivien y-koordinaatit.
+        """
         for block_sprite in self.locked_blocks:
             if block_sprite.rect.y < min(lines_removed_y):
                 self.move_block(block_sprite, 0, len(
