@@ -33,7 +33,7 @@ class GameLoop:
             self._block_locking_check()
             if self._playfield.check_if_active_block_inside_locked_block():
 
-                break
+                running = False
 
             self._renderer.render()
 
@@ -174,11 +174,12 @@ class GameLoop:
             self._clock.lock_counter_reset()
 
     def _gravity_check(self):
-        if self._clock.gravity_counter >= 256:
-            while self._clock.gravity_counter >= 256:
-                self._playfield.move_group(
-                    self._playfield.active_block, 0, self._cell_size)
-                self._clock.gravity_counter -= 256
+        """Tarkistaa onko aktiivisen palikan tarkoitus liikkua alaspäin painovoiman takia.
+        """
+        while self._clock.gravity_counter >= 256:
+            self._playfield.move_group(
+                self._playfield.active_block, 0, self._cell_size)
+            self._clock.gravity_counter -= 256
 
     def _block_creation_procedure(self):
         self._block_generator.create_block()
