@@ -12,8 +12,8 @@ Sovellus on tetristä muistuttava palikoiden kasaamispeli.
     - [x] palikan neliöt ovat kiinni toistensa sivuihin
     
    - [x] palikat liikkuvat kohti pelialueen pohjaa
-     - [x] kun pelialueen pohja tai toinen palikka estää palikan liikettä alas palikka lukkiutuu paikalleen ja uusi palikka ilmestyy
-      - [x] palikan pysähdyttyä laskuri nousee yhdellä ja laskurin täytyttyä se resetoi ja palikoiden nopeus alaspäin kasvaa
+     - [x] kun pelialueen pohja tai toinen palikka estää palikan liikettä alas palikka lukkiutuu paikalleen ja uusi palikka ilmestyy 
+      - [x] palikan lukkiutuminen kasvattaa laskuria, joka vastaa siitä kuinka usein palikat liikkuvat alaspäin
       
    - [x] pelaaja voi liikuttaa palikoita vasemmalle, oikealle ja alas
       - [x] pelaaja voi myös pyörittää palikoita kumpaankin suuntaan 90 astetta kerralla
@@ -26,7 +26,7 @@ Sovellus on tetristä muistuttava palikoiden kasaamispeli.
    
    
   - [x] Pelin jälkeen käyttäjä voi tallentaa saavutetun pistemäärän omalla nimimerkillään
-- [x] Käyttäjä pystyy tarkastelemaan huipputuloksia
+- [x] Käyttäjä pystyy tarkastelemaan huipputuloksia pelin jälkeen
 
 ## Jatkokehitysideoita
 Muutama esimerkki mahdollisista lisäyksistä/parannuksista perusversioon ajan salliessa:
