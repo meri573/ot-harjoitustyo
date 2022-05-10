@@ -42,3 +42,17 @@ sequenceDiagram
   GameLoop->>Renderer: render()
   
 ```
+
+### tuloksen tallennus
+
+```mermaid
+sequenceDiagram
+  actor User
+  participant GameLoop
+  participant ScoreRepository
+  User->>GameLoop: Press "Enter"
+  GameLoop->>GameLoop: _event_handling()
+  GameLoop->>ScoreRepository: save_score(username, score)
+  ScoreRepository-->>GameLoop: None
+  
+```
