@@ -166,6 +166,20 @@ class TestPlayfield(unittest.TestCase):
         for sprite123 in self.playfield.locked_blocks:
             self.assertEqual(sprite123.rect.y, CELL_SIZE)
 
+    def test_remaining_lines_between_full_lines_move_down_correctly(self):
+        TEST_BLOCK = ([["x", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "x"],
+                       ["x", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "x"],
+                       ["x", "x", "x", "x", "x", "x", "x", 2, 2, "x", "x", "x"],
+                       ["x", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "x"]], (153, 51, 255))
+        BLOCKS = [TEST_BLOCK]
+        block_generator = BlockGenerator(self.playfield, BLOCKS)
+        block_generator.create_random_block()
+
+        self.playfield.start_locking()
+
+        for sprite123 in self.playfield.locked_blocks:
+            self.assertEqual(sprite123.rect.y, 3 * CELL_SIZE)
+
     def test_rotation(self):
         TEST_BLOCK = ([["x", "x", "x", "x", "x", 2, 2, "x",
                       "x", "x", "x", "x"]], (153, 51, 255))
@@ -183,3 +197,18 @@ class TestPlayfield(unittest.TestCase):
             if block_sprite.rect.y == 1 * self.playfield.cell_size:
                 lista.append(block_sprite)
         self.assertEqual(len(lista), 1)
+
+    def test_check_if_active_block_inside_locked_block(self):
+        self.playfield.active_block.add(self.create_sprite(0, 0, 1))
+        self.assertEqual(
+            self.playfield.check_if_active_block_inside_locked_block(), False)
+
+        self.playfield.locked_blocks.add(self.create_sprite(0, 0, 1))
+
+        self.assertEqual(
+            self.playfield.check_if_active_block_inside_locked_block(), True)
+
+    def test_block_added_to_next_block_correctly(self):
+        lista = [[3]]
+        self.playfield.initialize_sprites(lista)
+        self.assertEqual(len(self.playfield.next_block), 1)
