@@ -5,7 +5,9 @@
 _ui_ sisältää käyttöliittymästä, _game_logic_ sovelluslogiikasta ja _score_database_ tietojen pysyväistallennuksesta vastaavan koodin. Pakkaus _sprites_ sisältää luokkia, jotka kuvastavat sovelluksen käyttämiä spritejä.
 
 ## Käyttöliittymä
+Käyttöliittymässä on pelinäkymä ja pelin loputtua pelinäkymän päälle lisätään huipputulokset ja tuloksen tallennus
 
+Käyttöliittymästä huolehtii _Renderer_-luokka. Käyttöliittymä on pyritty eristämään mahdollisimman hyvin pelilogiikasta. Eristys voisi olla parempi.
 
 
 ## Luokkakaavio?
