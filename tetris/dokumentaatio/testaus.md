@@ -20,4 +20,3 @@ Testattu Linux-ympäristössä [käyttöohjetta](https://github.com/meri573/ot-h
 
 ## Sovellukseen jääneitä laatuongelmia
 - täysien linjojen poistossa on hyvin harvinainen bugi jolloin jäljelle jääneet rivit eivät liiku alas oikealla tavalla.
-- Jos SQLite tietokantaa ei ole alustettu ohjelma ei anna järkevää virheilmoitusta.
