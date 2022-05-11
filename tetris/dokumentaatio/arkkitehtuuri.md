@@ -45,6 +45,29 @@ sequenceDiagram
   
 ```
 
+### palikan lukitseminen ja uuden palikan luonti
+
+```mermaid
+sequenceDiagram
+  participant Renderer
+  participant GameLoop
+  participant PlayField
+  participant BlockGenerator
+  GameLoop->>GameLoop: _block_locking_check()
+  GameLoop->>PlayField: start_locking()
+  PlayField->>PlayField: move_active_block_to_locked()
+  PlayField->>PlayField: _remove_full_lines()
+  PlayField-->>GameLoop: cleared_line_count
+  GameLoop->>GameLoop: _block_creation_procedure()
+  GameLoop->>BlockGenerator: create_block()
+  BlockGenerator->>PlayField: initialize_sprites()
+  PlayField-->>BlockGenerator: None
+  BlockGenerator-->>GameLoop: None
+  GameLoop->>Renderer: render()
+```
+
+
+
 ### tuloksen tallennus
 
 ```mermaid
