@@ -2,7 +2,6 @@ import sqlite3
 from score_database.database_connection import get_database_connection
 
 
-
 class ScoreRepository:
 
     def __init__(self, connection):
@@ -36,7 +35,6 @@ class ScoreRepository:
 
         except sqlite3.OperationalError:
             print("Database not found")
-            pass
 
     def delete_all(self):
 
@@ -49,5 +47,6 @@ class ScoreRepository:
 
         except sqlite3.OperationalError:
             print("Database not found")
+
 
 score_repository = ScoreRepository(get_database_connection())
