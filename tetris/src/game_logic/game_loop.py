@@ -132,10 +132,6 @@ class GameLoop:
             self._playfield.move_group(
                 self._playfield.active_block, 0, self._cell_size)
 
-    # def _set_last_pressed_key_and_tick(self, key):
-        #self._last_pressed_key = key
-        # self._clock.set_last_pressed_key_frame()
-
     def _autorepeat(self, key, keys):
         """Tarkistaa onko viimeistä liikenappia pidetty pohjassa tarpeeksi kauan, että liike
         toistettaisiin.
