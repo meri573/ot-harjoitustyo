@@ -25,6 +25,8 @@ Palikat liikkuvat automaattisesti kohti pelialueen pohjaa ja mitä pidempään p
 
 [arkkitehtuuri.md](https://github.com/meri573/ot-harjoitustyo/blob/main/tetris/dokumentaatio/arkkitehtuuri.md)
 
+[testausdokumentti.md](https://github.com/meri573/ot-harjoitustyo/blob/main/tetris/dokumentaatio/testaus.md)
+
 ## Asennus
 1. riippuvuudet saa asennettua komennolla
 
