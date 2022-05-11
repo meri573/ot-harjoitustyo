@@ -1,4 +1,6 @@
+import sqlite3
 from score_database.database_connection import get_database_connection
+
 
 
 class ScoreRepository:
@@ -10,29 +12,42 @@ class ScoreRepository:
 
         cursor = self._connection.cursor()
 
-        cursor.execute(
-            "select * from scores order by score desc limit 10"
-        )
+        try:
+            cursor.execute(
+                "select * from scores order by score desc limit 10"
+            )
 
-        return cursor.fetchall()
+            return cursor.fetchall()
+
+        except sqlite3.OperationalError:
+            print("Database not found")
+            return []
 
     def save_score(self, username, score):
         cursor = self._connection.cursor()
 
-        cursor.execute(
-            "insert into scores (username, score) values (?,?)",
-            (username, score)
-        )
+        try:
+            cursor.execute(
+                "insert into scores (username, score) values (?,?)",
+                (username, score)
+            )
 
-        self._connection.commit()
+            self._connection.commit()
+
+        except sqlite3.OperationalError:
+            print("Database not found")
+            pass
 
     def delete_all(self):
 
         cursor = self._connection.cursor()
 
-        cursor.execute("delete from scores")
+        try:
+            cursor.execute("delete from scores")
 
-        self._connection.commit()
+            self._connection.commit()
 
+        except sqlite3.OperationalError:
+            print("Database not found")
 
 score_repository = ScoreRepository(get_database_connection())
