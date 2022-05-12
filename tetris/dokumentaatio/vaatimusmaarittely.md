@@ -1,7 +1,7 @@
 # Vaatimusmäärittely
 
 ## Sovelluksen tarkoitus
-Sovellus on tetristä muistuttava palikoiden kasaamispeli.
+Sovelluksella voi pelata pelin tetristä.
 
 ## Perusversion tarjoama toiminnallisuus
 - [x] Käyttäjä voi pelata pelin tetristä
