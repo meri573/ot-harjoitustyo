@@ -31,5 +31,5 @@
 |5.5    |2     |.env ja testit|
 |6.5    |2     |docstrings + tests|
 |11.5   |2     |dokumentaatio|
-|yht    |52    |  |
+|yht    |54    |  |
 
