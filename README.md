@@ -3,12 +3,12 @@
 ## Tetris
 Tetris toteutettu pygame-kirjaston avulla.
 
-Pelin tavoitteena on muodostaa pelialueen ylärajaan esiintyvistä palikoista täysiä rivejä. Rivin täytyttyä se katoaa ja pelaajalle kertyy pisteitä.
+Pelin tavoitteena on täyttää pelialueen rivejä eri muotoisilla palikoilla. Rivin täytyttyä se katoaa ja pelaaja saa pisteitä. Monen rivin poistaminen antaa enemmän pisteitä ja pelin jatkuessa rivin poiston antama pistemäärä kasvaa.
 
-Palikat liikkuvat automaattisesti kohti pelialueen pohjaa ja mitä pidempään peli jatkuu sitä nopeampaa tämä liike on.
-  - level laskurin kasvaessa palikoiden putoamisnopeus kasvaa
-     - level laskuri kasvaa aina kun uusi palikka luodaan tai linja poistetaan
-       - kun level % 100 == 99 vain rivin poisto kasvattaa level laskuria
+Peli loppuu kun uuden palikan luomiselle ei enää ole tilaa pelialueella.
+
+Pelaajan liikutettavissa oleva palikka liikku alaspäin itsekseen. Palikan nopeus on aluksi hidas ja nousee pelin jatkuessa.
+
 ### Palikan liikuttaminen
 - nuolinäppäimillä liikutetaan palikkaa vasemmalle, oikealle, ja alas
 - s ja d pyörittävät palikkaa
