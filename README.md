@@ -14,6 +14,7 @@ Palikat liikkuvat automaattisesti kohti pelialueen pohjaa ja mitä pidempään p
 - s ja d pyörittävät palikkaa
 
 ## Dokumentaatio
+Dokumentaatiossa puutteita.
 
 [käyttöohje.md](https://github.com/meri573/ot-harjoitustyo/blob/main/tetris/dokumentaatio/kayttoohje.md)
  
