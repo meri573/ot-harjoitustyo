@@ -1,7 +1,7 @@
 # Käyttöohje
 
 ## Pelin käynnistäminen
-Komennot eivät välttämättä toimi oikein jos niitä ei suoriteta tetris kansiossa.
+#### Komennot eivät välttämättä toimi oikein jos niitä ei suoriteta tetris kansiossa.
 
 1. riippuvuudet saa asennettua komennolla
 
