@@ -60,7 +60,7 @@ sequenceDiagram
   PlayField-->>GameLoop: cleared_line_count
   GameLoop->>GameLoop: _block_creation_procedure()
   GameLoop->>BlockGenerator: create_block()
-  BlockGenerator->>PlayField: initialize_sprites()
+  BlockGenerator->>PlayField: initialize_sprites(block, color)
   PlayField-->>BlockGenerator: None
   BlockGenerator-->>GameLoop: None
   GameLoop->>Renderer: render()
